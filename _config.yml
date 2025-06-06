@@ -24,7 +24,7 @@ author:
   # Biographic information
   avatar           : "https://avatars.githubusercontent.com/u/72656155?v=4"
   name             : "Bishnu Khadka"
-  pronouns         : # example: "she/her"  
+  pronouns         : # example: "he/him"  
   bio              : "Trying to live life."
   location         : "Kathmandu, Nepal"
   employer         : "AI Research Center, ACEM"
@@ -36,7 +36,7 @@ author:
   arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : "http://orcid.org/0009-0007-3860-1935"
   semantic         : # URL
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   researchgate     : # URL
