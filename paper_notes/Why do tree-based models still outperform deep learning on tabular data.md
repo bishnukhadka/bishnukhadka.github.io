@@ -12,6 +12,10 @@
 ## Notes on the paper
 
 - There are benchmarks for Deep Learning, however not much for tabular-data. 
+- The superiority of GBTs over NNs is explained by specific features of tabular data: 
+    - irregular patterns in the target function, 
+    - uninformative features, and 
+    - non rotationally-invariant data where linear combinations of features misrepresent the information.
 - the paper defines 
     - a standard set of 45 datasets from varied domains with  clear characteristics of tabular data and 
     - a benchmarking methodology accounting for 
@@ -19,6 +23,29 @@
         - finding good hyperparameters. 
 - results show that tree-based models remain SOTA on medium-sized dta (~10K samples)
 - Inductive biases that lead to better performance for tree-based models for tabular data
+    1. NNs are biased to overly smooth solutions
+        - To test the effectiveness of learning smooth functions, the authors smoothed the train set using Gaussian Kernel.  
+        - Smoothing degrades the performance of the decision tress but does not effect the performance of the NNs. 
+        - NN's are biased towards low-frequency functions. What does this mean? 
+        - regularization and careful optimization does help NNs learn irregular patters/functions.
+        - Periodic embedding of PLE might help learn the high-frequency part of the target function. 
+        - This also explain why ExU activation is better for tabular deep learning. 
+        - Now the question is why does the NNs fail to learn irregular patterns? And why does PLE help NNs learn better. Does this make the train set more regular? 
+    2. Uninformative features affect more MLP-like NNs.
+        - MLP like structure have harder time to filter out uninformative features as compared to GBTs. 
+        - What does uninformative features mean? 
+            - Features that does not provide meaningful or useful information to help make predictions or gain insights from the data.
+        - For GBT, even if we remove half of the features(informative as well as uninformative), the performance does not degrade as much. 
+        - However, for NNs (Resnet, FT-Transformer) removing features negatively affect the performance of the model. 
+            - Therefore, they are less robust to uninformative features. 
+        - MLP like structure's inherent rotational invariance prevents it from easily isolating and ignoring uninformative features when they are mixed through linear transformations. 
+        - However the, weak learners in GBTs, recursively partition the feature space by making splits based on individual feature value. Therefore they are not rotationally invariant, and therefore can easily filter out uninformative features. 
+        - Here, FT-Transformer requires a embedding layer due to its use of Attention mechanism. But this embedding transports the feature into different embedding space, breaking the rotational invariant bias of a MLP like architecture. 
+    3. Data are non invariant by rotation, so should be learning procedures. 
+        - Why are MLPs much more hindered by uninformative features, compared to other models?
+            - Random has not lead to much difference in performance of ResNet,  and leads to slight degradation in FT-Transformer. But hugely disrupts the performance of GBTs. 
+            - This suggests that rotation invariance is not desirable: similarly to vision [Krizhevsky et al., 2012],
+            - We note that a promising avenue for further research would be to find other ways to break rotation invariance which might be less computationally costly than embeddings. 
 
 - Challenges to build tabular-specific NNs as per the authors
     1. be robust to uninformative  features, 
@@ -35,24 +62,41 @@
         - with/without categorical features
     - accounts for hyperparameter tuning cost. 
         - But how does it account for it? 
+        - Hyperparameter tuning leads to uncontrolled variance on a benchmark [Bouthillier et al., 2021](https://arxiv.org/pdf/2103.03098), especially with a small budget of model evaluations.
+            - Here at different configuration of hyperparameter, there are different scores. A model can achieve the best score at 3rd trial or may be cannot get the best score until 300th trial. This depends on the configuration, therefore there is an variance in result and this is uncontrollable as we do not know which configuration yields the best result. 
+            - design a benchmarking procedure that jointly samples the variance of hyperparameter tuning and explores increasingly high budgets of model.
+ evaluations.
     - choosing dataset.
         - what is “inter-sample” attention
     - preprocessing dataset?
 - Raw comparison of DL and tree based models.
 - Explanations of why Tree-based models work better than NNs.
-         
+
+
+## BENCHMARKING
+- test
+
+
 ## Questions that arose while reading the paper
 
 - What are the characteristics that let the authors to select a particular dataset? 
-    - Heterogeneous Columns
-    - Not high dimensional: Only dataset with a d/n ratio below 1/10. Note: `I am not sure what d/n means in this context`. 
-    - Dataset cannot have too little information. 
-    - Dataset cannot be stream-like or time series. 
-    - Should be real-world data. 
-    - Dataset cannot have features<4 or samples<3000. 
-    - Dataset cannot be too easy.  
-        - The authors use a different scoring system. But does it account for different Bayes rate for different dataset, that is the real question. 
-        - they remove a dataset if a default  Logistic Regression (or Linear Regression for regression) reach a score whose relative difference  with the score of both a default Resnet (from Gorishniy et al. [2021](arXiv:2106.11959)) and a default HistGradientBoosting model (from scikit learn) is below 5%. 
+    - The characteristics are as follows:    
+        - Heterogeneous Columns: Columns should correspond to features of different nature. Not signal or image. 
+        - Not high dimensional: Only dataset with a d/n ratio below 1/10. Note: `I am not sure what d/n means in this context`. 
+        - Dataset cannot have too little information. 
+        - Dataset cannot be stream-like or time series. 
+        - Should be real-world data. 
+        - Dataset cannot have features<4 or samples<3000. 
+        - Dataset cannot be too easy.  
+            - The authors use a different scoring system. But does it account for different Bayes rate for different dataset, that is the real question. 
+            - they remove a dataset if a default  Logistic Regression (or Linear Regression for regression) reach a score whose relative difference  with the score of both a default Resnet (from  [Gorishniy et al. 2021](arXiv:2106.11959)) and a default HistGradientBoosting model (from scikit learn) is below 5%. 
+        - Dataset should be non-deterministic. That means removing dataset where the target is a deterministic function of the data. 
+    - The benchmarking is created to make learning task as homogeneous as possible. Therefore challanges of tabular-data that requires a seperate analysis has been omitted. (Here, the question is, is it ommited form analysis or has it been ommited from the benchmarking? )
+        - Only used Medim-sized training set for the analysis. 
+        - Remove all the missing data. 
+        - Balanced classes. 
+        - categorical features with more than 20 items are removed. 
+        - Numerical features with less that 10 uniques values are also removed. 
 
 - Does tree-based models still remain SOTA for small- and large-sized data? 
 
