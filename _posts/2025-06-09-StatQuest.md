@@ -1,6 +1,6 @@
 ---
 title: "The StatQuest Illustrated Guide to Machine Learning!!!"
-date: 2025-06-04
+date: 2025-06-09
 permalink: /post/2025/06/statquest
 category: 
     - Book Notes
@@ -58,4 +58,9 @@ What is Machine Learning (ML)?
 
 
 ## Chapter 3: Fundamental Concepts in Statistics!!!
+
+- Main Idea of Statistics:
+    - Statistics provide us a set of tools to quantify the variation that we find in everyday life.
+    - For example, the number of fries you  get in a bucket is not always the same. 
+    - For machine learning, statistics help us make predictions and quantify how confident we should be in those predictions. 
 
