@@ -20,14 +20,14 @@ main:
   # - title: "Teaching"
   #   url: /teaching/    
     
-  - title: "Portfolio"
-    url: /portfolio/
+  # - title: "Portfolio"
+  #   url: /portfolio/
         
   - title: "Blog Posts"
     url: /year-archive/
 
-  - title: "Paper Notes"
-    url: /paper-notes/
+  # - title: "Paper Notes"
+  #   url: /paper-notes/
     
   # - title: "CV"
   #   url: /cv-json/

@@ -38,4 +38,3 @@ What is Machine Learning (ML)?
     - `continuous data`: measurable values under a particular pre-defined range. 
 
 ## Chapter 2: Cross Validation
-
