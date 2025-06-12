@@ -56,11 +56,25 @@ What is Machine Learning (ML)?
     - we usually use this for small dataset. 
 - Commonly, sometimes a particular model performs better in some iteration and another model can perform better in other iteration. In such case we use `Statistics` to decide the better model. 
 
-
 ## Chapter 3: Fundamental Concepts in Statistics!!!
 
 - Main Idea of Statistics:
     - Statistics provide us a set of tools to quantify the variation that we find in everyday life.
-    - For example, the number of fries you  get in a bucket is not always the same. 
-    - For machine learning, statistics help us make predictions and quantify how confident we should be in those predictions. 
+    - For example, the number of fries you  get in a bucket is not always the same. But say that we track it. Then from statistics, we can predict how many fires will we have tomorrow. And how confident can we be in that prediction can also be determined. 
+    - Here, say that you predict a positive result, but are not confident, then you will look for alternative approach.
+    - We know to make a prediction, we need to understand the trend of data. 
+        - And histogram is a good way visualizing the trend of data. 
+            - divide the range into number of bins. 
+            - and stack the element based on the frequency of element that fall into a bin.
+            - Here, the question to think of when making a histogram, is the number of bins you should use. 
+            - A Naive Bayes algorithm makes prediction using histogram.
+            - Calculating probability: 
+                - Probability of occurrence of something is the total number of occurrence divided by the number of observations made.
+                - Here, the more number of observation we have more confident we can be of our predictions. 
+                - But, we know that collecting more samples is expensive both monetarily and time-wise. 
+                - We can solve this problem using `Probability Distribution`. 
+
+
+- **Probability Distribution**
+    - 
 
