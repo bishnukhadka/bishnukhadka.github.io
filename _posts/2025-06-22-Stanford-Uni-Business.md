@@ -3,11 +3,12 @@ title: "Youtube: Everything I Learned at Stanford Business School in 28 Minutes"
 date: 2025-06-22
 permalink: /post/2025/06/yt-stanford-business
 category: 
-    - Paper_Notes
+    - Business
 tags:
-    - tabular deep learning.
+    - youtube, business.
 ---
 
+Links:
 - Channel: [jayhoovy](hhttps://www.youtube.com/@jayhoovy)
 - Video: [https://www.youtube.com/watch?v=vIkRbAvaQjs&t=49s](https://www.youtube.com/watch?v=vIkRbAvaQjs&t=49s)
 
