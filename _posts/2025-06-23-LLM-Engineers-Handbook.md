@@ -51,6 +51,7 @@ Book:
     - How we feed the data into the LLM
     - How we chain multiple prompts for the desired results
     - How we evaluate the generated content
+- In every software architecture, `Database`->`Business Logic`->`UI`. And, any layer can be as complex as required. But for ML, what do we require? 
 
 ### Chapter2: Tooling and Installation
 - The chapter covers: 
@@ -137,10 +138,3 @@ Book:
     - The path to LLMOps: Understanding its roots in DevOps and MLOps
     - Deploying the LLM Twin’s pipelines to the cloud
     - Adding LLMOps to the LLM Twin
-
-
-    
-
-
-
-    
