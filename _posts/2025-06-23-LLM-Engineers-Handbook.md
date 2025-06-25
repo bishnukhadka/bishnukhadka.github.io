@@ -42,7 +42,7 @@ Book:
 ### Chapter 1: Understanding
 - The chapter covers the following topics: 
     - Understanding the LLM Twin concept
-    - Planning the MVP of the LLM Twin product
+    - Planning the MVP of the LLM Twin product.
     - Building ML systems with feature/training/inference pipelines
     - Designing the system architecture of the LLM Twin
 - The key of the LLM Twin stands in the following:
@@ -51,7 +51,53 @@ Book:
     - How we feed the data into the LLM
     - How we chain multiple prompts for the desired results
     - How we evaluate the generated content
-- In every software architecture, `Database`->`Business Logic`->`UI`. And, any layer can be as complex as required. But for ML, what do we require? 
+- We have to consider how to do the following (MLOps):
+    - Ingest, clean, and validate fresh data
+    - Training versus inference setups
+    - Compute and serve features in the right environment
+    - Serve the model in a cost-effective way
+    - Version, track, and share the datasets and models
+    - Monitor your infrastructure and models
+    - Deploy the model on a scalable infrastructure
+    - Automate the deployments and training
+- In every software architecture, `Database`->`Business Logic`->`UI`. And, any layer can be as complex as required. But for ML, what do we require? Well, that is the `FTI` architecture. `Feature`->`Training`->`Inference`. 
+
+![FTI Architecture](https://miro.medium.com/v2/resize:fit:596/1*qdXMJimcoCGK1xAvurNePw.png)
+
+To conclude, the most important thing you must remember about the FTI pipelines is their interface:
+- The feature pipeline takes in data and outputs the features and labels saved to the feature store.
+- The training pipeline queries the features store for features and labels and outputs a model to the model registry. 
+- The inference pipeline uses the features from the feature store and the model from the model registry to make predictions.
+
+Requirements of the ML system from a purely technical perspective:
+- Data
+    - collect
+    - standardize
+    - clean the raw data
+    - create instruct database for fine-tuning an LLM
+    - chunk and embed the cleaned data. Store the vectorized data into a vector DB for RAG. 
+- Training
+    - Fine-tune LLMs of various sizes
+    - Fine-tune on instruction datasets of multiple sizes. 
+    - Switch between LLM types 
+    - Track and compare experiments. 
+    - Test potential production LLM candidates before deploying them. 
+    - Automatically start the training when new instruction datasets are available. 
+- Inference
+    - A REST API interface for clients to interact with the LLM
+    - Access to the vector DB in real time for RAG. 
+    - Inference with LLMs of various sizes
+    - Autoscaling based on user requests
+    - Automatically deploy the LLMs that pass the evaluation step
+- LLMOPs
+    - Instruction dataset versioning, lineage, and reusability
+    - Model versioning, lineage, and reusability
+    - Experiment tracking
+    - Continuous training, continuous integration, and continuous delivery (CT/CI/CD)
+    - Prompt and system monitoring
+
+![LLM Twin high-level architecture](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsubstackcdn.com%2Fimage%2Ffetch%2Ff_auto%2Cq_auto%3Agood%2Cfl_progressive%3Asteep%2Fhttps%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F06ee68fc-0e81-4e65-858a-2a7b2d2aedc2_1650x1650.png&f=1&nofb=1&ipt=c654edeca04d0587c3cc0437ffa43f40f2b2f1ac3b1ddf0d9f9dc8e4790620a9)
+
 
 ### Chapter2: Tooling and Installation
 - The chapter covers: 
