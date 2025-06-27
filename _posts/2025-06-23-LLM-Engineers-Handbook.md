@@ -105,8 +105,24 @@ Requirements of the ML system from a purely technical perspective:
     - MLOps and LLMOps tooling
     - Databases for storing unstructured and vector data
     - Preparing for AWS
+- Any Python project needs three fundamental tools: the Python interpreter, dependency management, and a task execution tool.
+- Poetry is one of the most popular dependency and virtual environment managers within the Python ecosystem.
+- An orchestrator is a system that automates, schedules, and coordinates all your ML pipelines. It ensures that each pipeline—such as data ingestion, preprocessing, model training, and deployment—executes in the correct order and handles dependencies efficiently. 
+- ZenML is one such orchestrator. 
+    - It orchestrates by `pipeline`s and `step`s. They are just python functions. Where steps are called in pipeline functions. Modular code should be written for this. 
+    - ZenML transforms any step output into artifacts.
+    - Any file produced during the ML lifecycle. 
+- Experiment Tracker: 
+    - Training ML models is an entirely iterative and experimental process. Therefore, an experiment tracker is required. 
+    - CometML is one that helps us in this aspect. 
+- Prompt monitoring
+    - you cannot use standard logging tools as prompts are complex and unstructured chains.
+    - Optik is simple to use prompt monitoring compared to other prompt monitoring tools.
+- MongoDB, NoSQL dataset. 
+- Qdrant, vector database. 
+- For our MVP, AWS, it’s the perfect option as it provides robust features for everything we need, such as S3 (object storage), ECR (container registry), and SageMaker (compute for training and inference).
 
-
+    
 ### Chapter 3: Data Engineering
 - In this chapter, we will study the following topics:
     - Designing the LLM Twin’s data collection pipeline
