@@ -124,16 +124,26 @@ Requirements of the ML system from a purely technical perspective:
 
     
 ### Chapter 3: Data Engineering
-- In this chapter, we will study the following topics:
-    - Designing the LLM Twin’s data collection pipeline
-    - Implementing the LLM Twin’s data collection pipeline
-    - Gathering raw data into the data warehouse
+In this chapter, we will study the following topics:
+- Designing the LLM Twin’s data collection pipeline
+- Implementing the LLM Twin’s data collection pipeline
+- Gathering raw data into the data warehouse
 
-- Collect and curate the dataset
+An ETL pipeline involves three fundamental steps:
+- We extract data from various sources. We will crawl data from platforms like Medium, Substack, and GitHub to gather raw data.
+- We transform this data by cleaning and standardizing it into a consistent format suitable for storage and analysis.
+- We load the transformed data into a data warehouse or database.
+
+Collect and curate the dataset
 - From raw data, `Extract` -> `Transform` -> `Load` into MongoDB. (ETL)
     - crawling
     - standardizing data
     - load into data warehouse
+
+
+
+<!-- ZenML's `digital_data_etl` pipeline:  -->
+
 
 
 ### Chapter 4: RAG Feature Pipeline
