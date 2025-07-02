@@ -221,9 +221,21 @@ For `query optimization`,
     - Paraphrasing
     - Synonym substitution
     - Sub-queries
-- Hypothetical document embeddings (HyDE)
+    - Hypothetical document embeddings (HyDE)
 - Query Expansion
-- Self-Query
+    - Self-Query
+
+#### Retrieval Pipeline Optimization 
+There are two ways 
+- Improve the Embedding model
+    - by fine-tuning the pre-trained model (very computationally costly, evan financially)
+    - using Instruction models (less costly)
+- Leveraging the DB's filter and search features
+
+
+#### Post-Retrieval Pipeline Optimization
+- Re-ranking
+- Prompt compression
 
 ### Chapter 5: Supervised Fine-Tuning
 - SFT refines the model's capabilities (here model refers to pre-trained model that can predict the new sequence) learning to predict `instruction-answer` pair. 
