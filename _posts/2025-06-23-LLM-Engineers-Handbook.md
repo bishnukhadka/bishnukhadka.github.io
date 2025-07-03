@@ -12,7 +12,7 @@ Book:
 - [Amazon link](https://www.amazon.com/LLM-Engineers-Handbook-engineering-production/dp/1836200072)
 
 
-## Notes
+# Notes
 - An LLM engineer should have the knowledge in the following:
     - Data preparation
     - Fine-tune LLM 
@@ -39,7 +39,7 @@ Book:
 
 
 
-### Chapter 1: Understanding
+## Chapter 1: Understanding
 - The chapter covers the following topics: 
     - Understanding the LLM Twin concept
     - Planning the MVP of the LLM Twin product.
@@ -99,7 +99,7 @@ Requirements of the ML system from a purely technical perspective:
 ![LLM Twin high-level architecture](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsubstackcdn.com%2Fimage%2Ffetch%2Ff_auto%2Cq_auto%3Agood%2Cfl_progressive%3Asteep%2Fhttps%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F06ee68fc-0e81-4e65-858a-2a7b2d2aedc2_1650x1650.png&f=1&nofb=1&ipt=c654edeca04d0587c3cc0437ffa43f40f2b2f1ac3b1ddf0d9f9dc8e4790620a9)
 
 
-### Chapter2: Tooling and Installation
+## Chapter2: Tooling and Installation
 - The chapter covers: 
     - Python ecosystem and project installation
     - MLOps and LLMOps tooling
@@ -123,7 +123,7 @@ Requirements of the ML system from a purely technical perspective:
 - For our MVP, AWS, it’s the perfect option as it provides robust features for everything we need, such as S3 (object storage), ECR (container registry), and SageMaker (compute for training and inference).
 
     
-### Chapter 3: Data Engineering
+## Chapter 3: Data Engineering
 In this chapter, we will study the following topics:
 - Designing the LLM Twin’s data collection pipeline
 - Implementing the LLM Twin’s data collection pipeline
@@ -143,7 +143,7 @@ Collect and curate the dataset
 
 
 <!-- ZenML's `digital_data_etl` pipeline:  -->
-### Chapter 4: RAG Feature Pipeline
+## Chapter 4: RAG Feature Pipeline
 - Retrieval-augmented generation (RAG)
 - Naive RAG
     - Chunking 
@@ -202,12 +202,14 @@ Therefore, for RAG we need two things;
 - robust evaluation of retrieval
 - retrieval limitation should be addressed in the algorithm itself. 
 
+
+### Advanced RAG
 The vanilla RAG design can be optimized at three different stages:
 - Pre-retrieval 
 - Retrieval
 - Post-retrieval
 
-#### Pre-retrieval
+#### **Pre-retrieval**
 most of the `data indexing` techniques focus on better preprocessing and structuring the data to improve retrieval efficiency, such as: 
 - Sliding Window
 - Enhancing Data Granularity
@@ -225,7 +227,7 @@ For `query optimization`,
 - Query Expansion
     - Self-Query
 
-#### Retrieval Pipeline Optimization 
+#### **Retrieval Pipeline Optimization**
 There are two ways 
 - Improve the Embedding model
     - by fine-tuning the pre-trained model (very computationally costly, evan financially)
@@ -233,11 +235,16 @@ There are two ways
 - Leveraging the DB's filter and search features
 
 
-#### Post-Retrieval Pipeline Optimization
+#### **Post-Retrieval Pipeline Optimization**
 - Re-ranking
 - Prompt compression
 
-### Chapter 5: Supervised Fine-Tuning
+### Exploring LLM Twin's RAG feature pipeline
+
+
+
+
+## Chapter 5: Supervised Fine-Tuning
 - SFT refines the model's capabilities (here model refers to pre-trained model that can predict the new sequence) learning to predict `instruction-answer` pair. 
 - Makes the general ability of pre-trained LLMs of understanding language to specific application, or in this case more conversational. 
 - In this chapter, the authors cover the following topics:
@@ -246,7 +253,7 @@ There are two ways
     - Implementing fine-tuning in practice
 
 
-### Chapter 6: Fine-Tuning with Preference Alignment
+## Chapter 6: Fine-Tuning with Preference Alignment
 - SFT cannot address a human's preference of how a conversation should be, therefore we use `preference alignment`, specifically the `Direct Preference Optimization (DPO)`.
 - Authors cover the following topics in this chapter: 
     - Understanding preference datasets
@@ -255,21 +262,21 @@ There are two ways
     - Implementing DPO in practice to align our model
 
 
-### Chapter 7: Evaluating LLMs
+## Chapter 7: Evaluating LLMs
 - `no unified approach` to measuring a model's performance but there are patterns and recipes that we can adapt to specific use cases. 
 - The chapter covers: 
     - Model evaluation
     - RAG evaluation
     - Evaluating TwinLlama-3.1-8B
 
-### Chapter 8: Inference Optimization 
+## Chapter 8: Inference Optimization 
 - Some tasks like document generation take hours and some tasks like code completion take a small amount of time, this is why optimization of the inference is quite important. The things that are optimized are the latency  (the speed of the generation of the first token), throughput (number of tokens generated per second), and memory footprint of the LLM. 
 - The chapter covers: 
     - Model optimization strategies
     - Model parallelism
     - Model quantization
 
-### Chapter 9: RAG Inference Pipeline
+## Chapter 9: RAG Inference Pipeline
 - Where the magic happens for the RAG system. 
 - The chapter covers the following topics: 
     - Understanding the LLM Twin’s RAG inference pipeline
@@ -277,7 +284,7 @@ There are two ways
     - Implementing the LLM Twin’s RAG inference pipeline
 
 
-### Chapter 10: Inference Pipeline Deployment 
+## Chapter 10: Inference Pipeline Deployment 
 - The chapter covers: 
     - Criteria for choosing deployment types
     - Understanding inference deployment types
@@ -286,7 +293,7 @@ There are two ways
     - Deploying the LLM Twin service
     - Autoscaling capabilities to handle spikes in usage
 
-### Chapter 11: MLOps and LLMOps
+## Chapter 11: MLOps and LLMOps
 - This chapter covers: 
     - The path to LLMOps: Understanding its roots in DevOps and MLOps
     - Deploying the LLM Twin’s pipelines to the cloud
