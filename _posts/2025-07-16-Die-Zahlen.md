@@ -19,7 +19,7 @@ tags:
 - 4 = vier
 - 5 = fünf 
 - 6 = sechs
-- 7 = siebenä
+- 7 = sieben
 - 8 = acht 
 - 9 = neun 
 - `10 = zehn`
@@ -93,19 +93,67 @@ tags:
 ## 60-69 in Deutsch
 
 - ***`60 = sechzig`***
+- 61 = einundsechzig
+- 62 = zweiundsechzig
+- 63 = dreiundsechzig
+- 64 = vierundsechzig
+- 65 = fünfundsechzig
+- 66 = sechsundsechzig
+- 67 = siebenundsechzig
+- 68 = achtundsechzig
+- 69 = neunundsechzig
 
 ## 70-79 in Deutsch
 
 - ***`70 = siebzig`***
+- 71 = einundsiebzig
+- 72 = zweiundsiebzig
+- 73 = dreiundsiebzig
+- 74 = vierundsiebzig
+- 75 = fünfundsiebzig
+- 76 = sechsundsiebzig
+- 77 = seibenundsiebzig
+- 78 = achtundsiebzig
+- 79 = neunundsiebzig
 
 ## 80-89 in Deutsch
 
 - `80 = achtzig`
+- 81 = einundachtzig
+- 82 = zweiundachtzig
+- 83 = dreiundachtzig
+- 84 = vierundachtzig
+- 85 = fünfundachtzig
+- 86 = sechsundachtzig
+- 87 = siebenundachtzig
+- 88 = achtundachtzig
+- 89 = neunundachtzig
 
 ## 90-99 in Deutsch
 
 - `90 = neunzig`
+- 91 = einundneunzig
+- 92 = zweiundneunzig
+- 93 = dreiundneunzig
+- 94 = vierundneunzig
+- 95 = fünfundneunzig
+- 96 = sechsundneunzig
+- 97 = siebenundneunzig
+- 98 = achtundneunzig
+- 99 = neunundneunzig
 
 # 100 in Deutsch
 
 - `100 = hundret `
+
+
+## 1000 in Deutsch 
+
+- `1000 = tausend `
+
+
+## Other examples
+
+- 6791 = sechstausendsiebenhundreteinundneunzig
+- 7082 = siebentausendzweiundachtzig
+- 2125 = zweitausendeinhundretfünfundzwanzig
