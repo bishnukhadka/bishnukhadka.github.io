@@ -49,7 +49,9 @@ Research Grants
 ======
 **Unveiling Waste and its Ripple Effect: Analyzing the Impact of Waste on Water Resources Quality - 2023**
 * NRP 200K+
-* Awarded to research on Climate Change, Green Hydrogen, Computational Technique, and Combinatorial Optimization; Granted by National College of Engineering, Tribhuvan University; Awarded to 5 research title among 100+ application.
+* Awarded to research on Climate Change, Green Hydrogen, Computational Technique, and Combinatorial Optimization
+* Granted by National College of Engineering, Tribhuvan University
+* Awarded to 5 research title among 100+ application.
 
 Awards 
 =====
