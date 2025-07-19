@@ -34,9 +34,6 @@ Skills
 ======
 * Research Writing
 * Machine Learning and Deep Learning
-  <!-- * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3 -->
 * Team Lead
 
 Publications
