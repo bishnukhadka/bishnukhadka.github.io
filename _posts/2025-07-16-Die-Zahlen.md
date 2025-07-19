@@ -37,6 +37,10 @@ tags:
 - 19 = neunzehn 
 
 
+For numbers after 20, you use the "und" (and). First we add write the one's place and then the ten's place. 
+
+For example, 21 = einundzwanzig (ein+und+zwanzig) (1 and 20)
+
 ## 20-29 in Deutsch
 
 - `20 = zwanzig `
