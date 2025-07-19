@@ -11,43 +11,51 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Bachelor's in Electronics, Communication, and Information Engineering, Advanced College of Engineering and Management, Tribhuvan University, 2025
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Research Assistant
+  * AI Research Center, Advanced College of Engineering and Management
+  * November 2023 - Present
+  <!-- * Duties include:  -->
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Research Assistant
+  * Research and Innovation Unit (RIU)
+  * July 2024 - Present
+  <!-- * Duties included: Merging pull requests -->
 
-* Summer 2015: Research Assistant
+<!-- * Summer 2015: Research Assistant
   * GitHub University
   * Duties included: Tagging issues
-  * Supervisor: Professor Git
+  * Supervisor: Professor Git -->
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
+* Research Writing
+* Machine Learning and Deep Learning
+  <!-- * Sub-skill 2.1
   * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+  * Sub-skill 2.3 -->
+* Team Lead
 
 Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
+
+Research Grants 
+======
+**Unveiling Waste and its Ripple Effect: Analyzing the Impact of Waste on Water Resources Quality - 2023**
+* NRP 200K+
+* Awarded to research on Climate Change, Green Hydrogen, Computational Technique, and Combinatorial Optimization; Granted by National College of Engineering, Tribhuvan University; Awarded to 5 research title among 100+ application.
+
+Awards 
+=====
+Awarded merit-based scholarships for achieving the highest percentage in my Electronics, Communication and Information Engineering cohort in the 7th semesters, worth $1000.
   
-Talks
+<!-- Talks
 ======
   <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html  %}
@@ -57,8 +65,8 @@ Teaching
 ======
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
-Service and leadership
+<!-- Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
