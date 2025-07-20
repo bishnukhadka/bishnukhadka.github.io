@@ -15,13 +15,14 @@ Education
 
 Work experience
 ======
-* Research Assistant
+* Research and Teaching Assistant
   * AI Research Center, Advanced College of Engineering and Management
   * November 2023 - Present
-  <!-- * Duties include:  -->
+  * Duties include: Research Writing, Resource Management, Team Lead, Create Lecture Slides, Check assignments, Grade exam papers
 
 * Research Assistant
   * Research and Innovation Unit (RIU)
+  * Working in collaboration with BASF, Germany. 
   * July 2024 - Present
   <!-- * Duties included: Merging pull requests -->
 
@@ -34,6 +35,7 @@ Skills
 ======
 * Research Writing
 * Machine Learning and Deep Learning
+* Language: Python, Java
 * Team Lead
 
 Publications
