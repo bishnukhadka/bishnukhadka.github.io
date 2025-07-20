@@ -15,15 +15,16 @@ Education
 
 Work experience
 ======
+* Research Assistant
+  * Research and Innovation Unit (RIU) in collaboration with BASF, Germany.
+  * July 2024 - Present
+
 * Research and Teaching Assistant
   * AI Research Center, Advanced College of Engineering and Management
   * November 2023 - Present
-  * Duties include: Research Writing, Resource Management, Team Lead, Create Lecture Slides, Check assignments, Grade exam papers
+  * Duties include: Research Writing, Resource Management, Team Leading, Create Lecture Slides, Check assignments, Grade exam papers
 
-* Research Assistant
-  * Research and Innovation Unit (RIU)
-  * Working in collaboration with BASF, Germany. 
-  * July 2024 - Present
+
   <!-- * Duties included: Merging pull requests -->
 
 <!-- * Summer 2015: Research Assistant
@@ -31,12 +32,6 @@ Work experience
   * Duties included: Tagging issues
   * Supervisor: Professor Git -->
   
-Skills
-======
-* Research Writing
-* Machine Learning and Deep Learning
-* Language: Python, Java
-* Team Lead
 
 Publications
 ======
@@ -47,14 +42,22 @@ Publications
 Research Grants 
 ======
 **Unveiling Waste and its Ripple Effect: Analyzing the Impact of Waste on Water Resources Quality - 2023**
-* NRP 200K+
+* Grant worth of NPR 200,000 received
 * Awarded to research on Climate Change, Green Hydrogen, Computational Technique, and Combinatorial Optimization
 * Granted by National College of Engineering, Tribhuvan University
 * Awarded to 5 research title among 100+ application.
 
 Awards 
 =====
-Awarded merit-based scholarships for achieving the highest percentage in my Electronics, Communication and Information Engineering cohort in the 7th semesters, worth $1000.
+Awarded merit-based scholarships for achieving the highest percentage in my Electronics, Communication and Information Engineering cohort in the 7th semesters, worth NPR 100,000.
+
+Skills
+======
+* Research Writing
+* Machine Learning and Deep Learning
+* Language: Python, Java
+* Team Lead
+
   
 <!-- Talks
 ======
