@@ -15,3 +15,9 @@ package-lock.json
 # Ignore the vendor file and bundle for alternative installation
 vendor/
 .bundle/
+
+
+# for daily posts (will remove each on each day)
+_posts/2025-07-14-Deutsch-day1.md
+_posts/2025-07-15-Deutsch-Alphabets.md
+_posts/2025-07-17-Deutsch-Slangs.md

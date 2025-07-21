@@ -10,6 +10,37 @@ tags:
 
 <!-- # Die Zahlen -->
 
+Before starting with the numbers and their pronunciation
+
+## Rule 1: for S After Vowels
+
+If vowels (a, e, i, o, u) precede **S**, it makes a (English J sound) **ज** (ja).
+
+- Examples:
+    - **Sa** → **जा** (ja)
+    - **Si** → **जी** (jī)
+    - **Se** → **जे** (je)
+    - **So** → **जो** (jo)
+    - **Su** → **जू** (jū)
+
+## Rule 2:  for "ch" After Vowels
+
+- If **ch** is preceded by **a, o, u, au**, it gives a **ख** (kha) sound.
+
+- Examples:
+    - **cha** → **ख** (kha)
+    - **cho** → **खो** (kho)
+    - **chu** → **खू** (khū)
+    - **chau** → **खौ** (khau)
+
+## Rule 3: for Vowel Combinations
+
+1. **ei** is pronounced as **English "i"** 
+2. **ie** is pronounced as **English "e"**
+3. **ig** is pronounced as **"ss"** 
+
+# Die Zahlen
+
 ## 0 to 12 in Deutsch
 
 - 0 = null
@@ -157,6 +188,12 @@ For example, 21 = einundzwanzig (ein+und+zwanzig) (1 and 20)
 
 
 ## Other examples
+
+Here, from an English speaking perspective it can be viewed as the following syntax: 
+
+<u>1000th place</u> tausend <u>100s place</u> hundred <u>10s place</u> und <u> 1s place</u>
+
+Note: They are written together. 
 
 - 6791 = sechstausendsiebenhundreteinundneunzig
 - 7082 = siebentausendzweiundachtzig
