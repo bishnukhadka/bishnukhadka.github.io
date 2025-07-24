@@ -70,42 +70,53 @@ tags:
 
 ## 🚆 Group 1: Travel & Transport
 
-| **Singular (DE)**       | **Plural (DE)**           | **Meaning (EN)**           |
-|-------------------------|---------------------------|-----------------------------|
-| das Auto                | die Autos                 | car                         |
-| der Zug                 | die Züge                  | train                       |
-| der Bahnhof             | die Bahnhöfe              | rail station                |
-| die Fahrkarte           | die Fahrkarten            | ticket                      |
-| die Reise               | die Reisen                | travel                      |
-| die Reisetasche         | die Reisetaschen          | travel bag                  |
-| das Flugzeug            | die Flugzeuge             | airplane                    |
-| der Flughafen           | die Flughäfen             | airport                     |
-| die Straßenbahn         | die Straßenbahnen         | streetcar/tram              |
-| die U-Bahn              | die U-Bahnen              | subway                      |
-| das Fahrrad             | die Fahrräder             | bicycle                     |
-| der Bus                 | die Busse                 | bus                         |
-| das Gleis               | die Gleise                | track (platform)            |
-| der Fahrplan            | die Fahrpläne             | timetable                   |
-| das Reiseziel           | die Reiseziele            | travel destination          |
+### 📘 Vocabulary Table
 
+| **Singular (DE)**      | **Plural (DE)**         | **Meaning (EN)**              |
+|------------------------|-------------------------|-------------------------------|
+| das Auto               | die Autos               | car                           |
+| das Baby               | die Babys               | baby                          |
+| der Bahnhof            | die Bahnhöfe            | train station                 |
+| der Zug                | die Züge                | train                         |
+| die Bahn               | die Bahnen              | railway                       |
+| die Blume              | die Blumen              | flower                        |
+| der Brief              | die Briefe              | letter (written message)      |
+| die Fahrkarte          | die Fahrkarten          | ticket                        |
+| die Flasche            | die Flaschen            | bottle                        |
+| das Foto               | die Fotos               | photo                         |
+| das Gespräch           | die Gespräche           | conversation                  |
+| die Reise              | die Reisen              | travel, trip                  |
+| die Stadt              | die Städte              | city                          |
+| das Dorf               | die Dörfer              | village                       |
+| das Ziel               | die Ziele               | destination / goal            |
 
+---
 
-### Sentences 
+### 🧳 Situational Sentences (Color-Coded)
 
-| **German (color-coded)**                                                                                                                         | **English (color-coded)**                                                                                              |
-|--------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| Ich **<span style="color:green">fahre</span>** mit dem <span style="color:blue">Auto</span> zum <span style="color:green">Bahnhof</span>.        | I **<span style="color:green">drive</span>** the <span style="color:blue">car</span> to the <span style="color:green">station</span>. |
-| Ich **<span style="color:green">sehe</span>** den <span style="color:blue">Zug</span>.                                                           | I **<span style="color:green">see</span>** the <span style="color:blue">train</span>.                                   |
-| Mein <span style="color:orange">Reiseziel</span> ist Berlin.                                                                                     | My <span style="color:orange">travel destination</span> is Berlin.                                                      |
-| Ich **<span style="color:green">habe</span>** eine <span style="color:purple">Fahrkarte</span>.                                                  | I **<span style="color:green">have</span>** a <span style="color:purple">ticket</span>.                                 |
-| Ich **<span style="color:green">habe</span>** auch eine <span style="color:brown">Reisetasche</span>.                                            | I **<span style="color:green">also have</span>** a <span style="color:brown">travel bag</span>.                         |
-| Ich **<span style="color:green">sehe</span>** den <span style="color:green">Fahrplan</span> am <span style="color:green">Gleis</span>.           | I **<span style="color:green">see</span>** the <span style="color:green">timetable</span> at the <span style="color:green">platform</span>. |
-| Die <span style="color:red">Straßenbahn</span> ist **<span style="color:orange">schnell</span>**.                                                | The <span style="color:red">tram</span> is **<span style="color:orange">fast</span>**.                                  |
-| Die <span style="color:red">U-Bahn</span> ist auch **<span style="color:orange">schnell</span>**.                                                | The <span style="color:red">subway</span> is also **<span style="color:orange">fast</span>**.                          |
-| Ich **<span style="color:green">fliege</span>** mit dem <span style="color:blue">Flugzeug</span>.                                                | I **<span style="color:green">fly</span>** with the <span style="color:blue">airplane</span>.                          |
-| Ich **<span style="color:green">bin</span>** am <span style="color:green">Flughafen</span>.                                                      | I **<span style="color:green">am</span>** at the <span style="color:green">airport</span>.                             |
-| Ich **<span style="color:green">fahre</span>** mit dem <span style="color:brown">Bus</span> zum Hotel.                                           | I **<span style="color:green">go</span>** by <span style="color:brown">bus</span> to the hotel.                        |
-| Ich **<span style="color:green">habe</span>** ein <span style="color:green">Fahrrad</span>.                                                      | I **<span style="color:green">have</span>** a <span style="color:green">bicycle</span>.                                |
+| **German (A1)**                                                                                                   | **English**                                                                                  |
+|------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| Ich **<span style="color:green">reise</span>** mit dem <span style="color:blue">Zug</span> zum <span style="color:blue">Bahnhof</span>.                   | I **<span style="color:green">travel</span>** by <span style="color:blue">train</span> to the <span style="color:blue">train station</span>.              |
+| Dort kaufe ich eine <span style="color:purple">Fahrkarte</span> nach einer großen <span style="color:orange">Stadt</span>.                            | There, I buy a <span style="color:purple">ticket</span> to a big <span style="color:orange">city</span>.               |
+| Mein <span style="color:blue">Ziel</span> ist ein schönes <span style="color:orange">Dorf</span>.                                                    | My <span style="color:blue">destination</span> is a beautiful <span style="color:orange">village</span>.               |
+| Ich sehe eine <span style="color:purple">Blume</span> und mache ein <span style="color:purple">Foto</span>.                                          | I see a <span style="color:purple">flower</span> and take a <span style="color:purple">photo</span>.                   |
+| Ein <span style="color:blue">Auto</span> steht vor dem <span style="color:blue">Bahnhof</span>.                                                      | A <span style="color:blue">car</span> stands in front of the <span style="color:blue">station</span>.                  |
+| Ich höre ein <span style="color:purple">Gespräch</span> über ein <span style="color:blue">Baby</span>.                                               | I hear a <span style="color:purple">conversation</span> about a <span style="color:blue">baby</span>.                  |
+| Ich schreibe einen <span style="color:purple">Brief</span> über meine <span style="color:purple">Reise</span>.                                       | I write a <span style="color:purple">letter</span> about my <span style="color:purple">trip</span>.                    |
+| Ich trinke Wasser aus einer <span style="color:purple">Flasche</span>.                                           | I drink water from a <span style="color:purple">bottle</span>.                                                         |
+| Die <span style="color:blue">Bahn</span> **<span style="color:green">kommt</span>** pünktlich an.                                                    | The <span style="color:blue">railway train</span> **<span style="color:green">arrives</span>** on time.               |
+
+---
+
+### 🎨 Color Legend
+
+| **Color**                       | **Category**             | **Examples (DE ↔ EN)**                          |
+|--------------------------------|--------------------------|-------------------------------------------------|
+| <span style="color:blue">Blue</span>   | Vehicles & transport nouns | Zug, Auto, Bahnhof, Bahn, Ziel                |
+| <span style="color:purple">Purple</span> | Objects / communication    | Flasche, Brief, Fahrkarte, Foto, Gespräch     |
+| <span style="color:orange">Orange</span> | Places                     | Stadt, Dorf                                   |
+| <span style="color:green">Green (bold)</span> | Verbs                      | **reise**, **komme**, **schreibe**            |
+                            |
 
 
 
