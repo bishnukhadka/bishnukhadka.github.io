@@ -69,6 +69,7 @@ tags:
 # Examples 
 
 ## 🚆 Group 1: Travel & Transport
+
 | **Singular (DE)**       | **Plural (DE)**           | **Meaning (EN)**           |
 |-------------------------|---------------------------|-----------------------------|
 | das Auto                | die Autos                 | car                         |
@@ -88,7 +89,9 @@ tags:
 | das Reiseziel           | die Reiseziele            | travel destination          |
 
 
+
 ### Sentences 
+
 | **German (color-coded)**                                                                                                                         | **English (color-coded)**                                                                                              |
 |--------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | Ich **<span style="color:green">fahre</span>** mit dem <span style="color:blue">Auto</span> zum <span style="color:green">Bahnhof</span>.        | I **<span style="color:green">drive</span>** the <span style="color:blue">car</span> to the <span style="color:green">station</span>. |
@@ -103,6 +106,7 @@ tags:
 | Ich **<span style="color:green">bin</span>** am <span style="color:green">Flughafen</span>.                                                      | I **<span style="color:green">am</span>** at the <span style="color:green">airport</span>.                             |
 | Ich **<span style="color:green">fahre</span>** mit dem <span style="color:brown">Bus</span> zum Hotel.                                           | I **<span style="color:green">go</span>** by <span style="color:brown">bus</span> to the hotel.                        |
 | Ich **<span style="color:green">habe</span>** ein <span style="color:green">Fahrrad</span>.                                                      | I **<span style="color:green">have</span>** a <span style="color:green">bicycle</span>.                                |
+
 
 
 ## 👪 Group 2: Family & Relationships (A1-Level, Full Highlighting)
