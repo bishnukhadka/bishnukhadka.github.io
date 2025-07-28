@@ -260,3 +260,7 @@ tags:
 | Draußen <span style="color:#2e8b57">**fliegt**</span> ein <span style="color:#4682b4">**Ballon**</span> im <span style="color:#b8860b">**Wetter**</span>.                                           | Outside, a <span style="color:#4682b4">**balloon**</span> <span style="color:#2e8b57">**flies**</span> in the <span style="color:#b8860b">**weather**</span>.     |
 | Ich <span style="color:#2e8b57">**denke**</span> an die <span style="color:#b8860b">**Vergangenheit**</span> und freue mich auf die <span style="color:#b8860b">**Zukunft**</span>.               | I <span style="color:#2e8b57">**think**</span> about the <span style="color:#b8860b">**past**</span> and look forward to the <span style="color:#b8860b">**future**</span>. |
 | Die <span style="color:#4682b4">**Gegenwart**</span> <span style="color:#2e8b57">**ist**</span> auch <span style="color:#b22222">**schön**</span>.                                                  | The <span style="color:#4682b4">**present**</span> <span style="color:#2e8b57">**is**</span> also <span style="color:#b22222">**beautiful**</span>.       |
+
+
+Note: `This needs to be checked if the current stories are for A1 level or not.`
+
