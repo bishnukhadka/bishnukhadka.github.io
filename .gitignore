@@ -16,9 +16,8 @@ package-lock.json
 vendor/
 .bundle/
 
-
 .gitignore
 
 # for daily posts (will remove each on each day)
 _posts/2025-07-25-c-TF-IDF.md
-_posts/2025-07-29-Deutsch-Day-12.md
+_posts/2025-07-29-Deutsch-Day-13.md (not completed)
