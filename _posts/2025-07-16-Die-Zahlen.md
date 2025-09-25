@@ -8,37 +8,6 @@ tags:
     - Numbers, German
 ---
 
-<!-- # Die Zahlen -->
-
-Before starting with the numbers and their pronunciation
-
-## Rule 1: for S After Vowels
-
-If vowels (a, e, i, o, u) precede **S**, it makes a (English J sound) **ज** (ja).
-
-- Examples:
-    - **Sa** → **जा** (ja)
-    - **Si** → **जी** (jī)
-    - **Se** → **जे** (je)
-    - **So** → **जो** (jo)
-    - **Su** → **जू** (jū)
-
-## Rule 2:  for "ch" After Vowels
-
-- If **ch** is preceded by **a, o, u, au**, it gives a **ख** (kha) sound.
-
-- Examples:
-    - **cha** → **ख** (kha)
-    - **cho** → **खो** (kho)
-    - **chu** → **खू** (khū)
-    - **chau** → **खौ** (khau)
-
-## Rule 3: for Vowel Combinations
-
-1. **ei** is pronounced as **English "i"** 
-2. **ie** is pronounced as **English "e"**
-3. **ig** is pronounced as **"ss"** 
-
 # Die Zahlen
 
 ## 0 to 12 in Deutsch

@@ -1,7 +1,7 @@
 ---
-title: "Deutsch Day 2: Alphabets"
+title: "Deutsch #2: Alphabets"
 date: 2025-07-15
-permalink: /post/2025/06/deutsch_day_2
+permalink: /post/2025/06/deutsch-alphabets
 category: 
     - German, Deutsch
 tags:
@@ -49,3 +49,32 @@ tags:
 | ö                 | ओए (oe)                      | Like "ö" in German "schön"                    |
 | ü                 | यू (yu)                      | Like French "u" or “ü”                        |
 | ß                 | एस्स (ess)                   | Sharp “s” sound, like "ss"                    |
+
+Some rules for the pronunciation of words in Deutsch. 
+
+## Rule 1: for S After Vowels
+
+If vowels (a, e, i, o, u) precede **S**, it makes a (English J sound) **ज** (ja).
+
+- Examples:
+    - **Sa** → **जा** (ja)
+    - **Si** → **जी** (jī)
+    - **Se** → **जे** (je)
+    - **So** → **जो** (jo)
+    - **Su** → **जू** (jū)
+
+## Rule 2:  for "ch" After Vowels
+
+- If **ch** is preceded by **a, o, u, au**, it gives a **ख** (kha) sound.
+
+- Examples:
+    - **cha** → **ख** (kha)
+    - **cho** → **खो** (kho)
+    - **chu** → **खू** (khū)
+    - **chau** → **खौ** (khau)
+
+## Rule 3: for Vowel Combinations
+
+1. **ei** is pronounced as **English "i"** 
+2. **ie** is pronounced as **English "e"**
+3. **ig** is pronounced as **"ss"** 
