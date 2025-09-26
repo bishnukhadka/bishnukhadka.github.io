@@ -1,7 +1,7 @@
 ---
 title: "Deutsch #1"
 date: 2025-07-14
-permalink: /post/2025/06/deutsch-greetings
+permalink: /post/2025/06/deutsch-greetings-and-phrases
 category: 
     - German, Deutsch
 tags:

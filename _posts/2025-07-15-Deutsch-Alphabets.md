@@ -1,5 +1,5 @@
 ---
-title: "Deutsch #2: Alphabets"
+title: "Deutsch Alphabets"
 date: 2025-07-15
 permalink: /post/2025/06/deutsch-alphabets
 category: 

@@ -1,12 +1,15 @@
 ---
-title: "Deutsch Day 8-9: die Artikle"
+title: "die Artikle im Nominative"
 date: 2025-07-22
-permalink: /post/2025/06/deutsch_day_8-9
+permalink: /post/2025/06/artikle-im-nominative
 category: 
     - German, Deutsch
 tags:
     - German
 ---
+# Nomen
+
+Noun is called `Nomen` in German and it is always written with it's first letter capital. This might not be intuitive for an English speaker but it is the rule. Also, in most of the case written with `artikel`. The artikel depends on the case if it is `Nominative`, `Akkusative` or `Dativ`. And in German, based on those artikel, we have different work for saying "not", "one" and "my". Here, `Artikel im Nominative` is explained: 
 
 # Der, Die, Das
 
