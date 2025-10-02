@@ -14,7 +14,7 @@ For example, knowing the word “book” is helpful, but learning the phrase “
 
 Moreover, sentences and phrases expose you to cultural nuances and idiomatic expressions that single words cannot convey. This leads to better comprehension when listening or reading, and more confidence when speaking. In summary, prioritizing phrases and sentences accelerates your ability to communicate effectively, making language learning more enjoyable and efficient.  
  
-Below are some of the anki decks that can be used: 
+Below are some of the anki decks collections that can be used: 
 
 **Deutsch**: 
 - German Sentences 
@@ -23,7 +23,7 @@ Below are some of the anki decks that can be used:
     - Part 3 - B2-C1 : https://ankiweb.net/shared/info/944971572
 - German 7000 Intermediate/Advanced Sentences w/ Audio 
     - Part 1 : https://ankiweb.net/shared/info/1125602705
-    
+
 
 **Japanese**:
 - LTL Japanese Deck 
