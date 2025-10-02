@@ -1,0 +1,63 @@
+/* Featured Posts Styling */
+.featured-posts {
+  margin-bottom: 2em;
+  background: rgba(238, 238, 238, 0.3);
+  border-radius: 6px;
+  padding: 1.5em;
+  border-left: 4px solid #f39c12;
+}
+
+.featured-posts h2.archive__subtitle {
+  color: #f39c12;
+  margin-bottom: 1em;
+}
+
+.featured-post__item {
+  margin-bottom: 1em;
+}
+
+.featured-posts__separator {
+  margin: 2em 0;
+  border: 0;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.featured-posts__more {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-top: 1em;
+}
+
+/* Subtle featured post indicator */
+.featured-post {
+  position: relative;
+}
+
+.featured-star {
+  color: #f39c12;
+  margin-right: 0.3em;
+  font-size: 0.8em;
+}
+
+/* Archive sections */
+.all-posts-archive {
+  margin-top: 1em;
+}
+
+.all-posts-archive h2.archive__subtitle {
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5em;
+}
+
+/* Year headings */
+.all-posts-archive h3.archive__subtitle {
+  color: #555;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.25em;
+}

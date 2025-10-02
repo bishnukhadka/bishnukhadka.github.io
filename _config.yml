@@ -90,7 +90,13 @@ teaser                   :  # filename of teaser fallback teaser image placed in
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
 future                   : true
-read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
+read_more                : "enabled" # if enabled, adds "Read more" links to excerpts
+
+# Featured Posts Settings
+featured_posts:
+  enabled                : true     # enable/disable featured posts section
+  count                  : 3        # number of featured posts to show
+  show_on_archive        : true     # show featured section on blog archive page
 talkmap_link             : false      #change to true to add link to talkmap on talks page
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"

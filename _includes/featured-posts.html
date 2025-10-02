@@ -1,0 +1,27 @@
+{% include base_path %}
+
+{% if site.featured_posts.enabled and site.featured_posts.show_on_archive %}
+  {% assign featured_posts = site.posts | where: "featured", true %}
+  {% if featured_posts.size > 0 %}
+    <div class="featured-posts">
+      <h2 class="archive__subtitle">
+        <i class="fa fa-star" aria-hidden="true"></i> Featured Posts
+      </h2>
+      
+      {% assign featured_count = site.featured_posts.count | default: 3 %}
+      {% for post in featured_posts limit: featured_count %}
+        <div class="featured-post__item">
+          {% include archive-single.html type="featured" %}
+        </div>
+      {% endfor %}
+      
+      {% if featured_posts.size > featured_count %}
+        <p class="featured-posts__more">
+          <em>{{ featured_posts.size | minus: featured_count }} more featured posts in the archive below.</em>
+        </p>
+      {% endif %}
+    </div>
+    
+    <hr class="featured-posts__separator">
+  {% endif %}
+{% endif %}
