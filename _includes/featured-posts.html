@@ -8,9 +8,9 @@
   
   <div class="featured-posts-container">
     <div class="featured-posts-scroll">
-      {% assign featured_posts = site.posts | where: "featured", true | limit: 8 %}
+      {% assign featured_posts = site.posts | where: "featured", true | sort: 'date' | reverse | limit: 10 %}
       {% if featured_posts.size == 0 %}
-        {% assign featured_posts = site.posts | limit: 6 %}
+        {% assign featured_posts = site.posts | sort: 'date' | reverse | limit: 10 %}
       {% endif %}
       
       {% for post in featured_posts %}
@@ -81,19 +81,30 @@
 <style>
 .featured-posts-section {
   margin: 2rem 0 3rem 0;
+  padding: 2rem;
+  position: relative;
 }
 
 .featured-posts-title {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  color: var(--text-color, #333);
+  color: #b8860b;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(184, 134, 11, 0.1);
 }
 
 .featured-posts-title i {
   color: #ffd700;
+  filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.3));
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
 }
 
 .featured-posts-container {
@@ -131,18 +142,46 @@
 .featured-post-card {
   min-width: 320px;
   max-width: 320px;
-  background: var(--background-color, #fff);
-  border: 1px solid var(--border-color, #e5e5e5);
+  background: linear-gradient(135deg, #ffffff, #fffef9);
+  border: 2px solid transparent;
+  background-clip: padding-box;
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.featured-post-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2px;
+  background: linear-gradient(135deg, #ffd700, #ffb347, #daa520);
+  border-radius: 12px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  z-index: -1;
 }
 
 .featured-post-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: var(--link-color, #0366d6);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.featured-post-card:hover::before {
+  background: linear-gradient(135deg, #ffd700, #ff8c00, #daa520);
+  animation: borderGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
 }
 
 .card-content {
@@ -160,20 +199,24 @@
 
 .card-meta {
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-  font-size: 0.8rem;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.7rem;
   color: var(--muted-text-color, #999);
 }
 
 .card-meta span {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.25rem 0.5rem;
+  gap: 0.2rem;
+  padding: 0.15rem 0.4rem;
   background: var(--hover-color, #f6f8fa);
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid var(--border-color, #e5e5e5);
+}
+
+.card-meta i {
+  font-size: 0.6rem;
 }
 
 .card-title {
@@ -187,14 +230,18 @@
   color: var(--text-color, #333);
   text-decoration: none;
   transition: color 0.2s ease;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #b8860b, #daa520, #cd853f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 700;
 }
 
 .card-title a:hover {
-  opacity: 0.8;
+  background: #ffd700;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .card-excerpt {
@@ -208,29 +255,29 @@
 .card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-tag {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #daa520, #b8860b);
   color: white;
-  padding: 0.3rem 0.7rem;
-  border-radius: 16px;
-  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.65rem;
   font-weight: 500;
   border: none;
-  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 2px 4px rgba(218, 165, 32, 0.4);
 }
 
 .card-tag-more {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
   color: white;
-  padding: 0.3rem 0.7rem;
-  border-radius: 16px;
-  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.65rem;
   font-weight: 600;
-  box-shadow: 0 2px 4px rgba(240, 147, 251, 0.3);
+  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.4);
 }
 
 .card-footer {
@@ -243,32 +290,37 @@
 .card-read-more {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  color: var(--link-color, #0366d6);
+  gap: 0.25rem;
+  color: #b8860b;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.8rem;
-  padding: 0.4rem 0.8rem;
-  border: 1px solid var(--link-color, #0366d6);
-  border-radius: 16px;
+  font-weight: 600;
+  font-size: 0.7rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #daa520;
+  border-radius: 12px;
   transition: all 0.2s ease;
   background: transparent;
 }
 
 .card-read-more:hover {
-  background: var(--link-color, #0366d6);
+  background: linear-gradient(135deg, #daa520, #b8860b);
   color: white;
-  gap: 0.5rem;
+  gap: 0.4rem;
   text-decoration: none;
+  box-shadow: 0 2px 8px rgba(218, 165, 32, 0.3);
 }
 
 .reading-time {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  font-size: 0.75rem;
+  gap: 0.25rem;
+  font-size: 0.65rem;
   color: var(--muted-text-color, #999);
   font-weight: 500;
+}
+
+.reading-time i {
+  font-size: 0.55rem;
 }
 
 .scroll-indicators {
@@ -285,8 +337,8 @@
 .scroll-btn {
   width: 40px;
   height: 40px;
-  background: var(--background-color, #fff);
-  border: 1px solid var(--border-color, #e5e5e5);
+  background: linear-gradient(135deg, #ffd700, #ffb347);
+  border: 1px solid #daa520;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -294,21 +346,15 @@
   cursor: pointer;
   pointer-events: auto;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  color: white;
 }
 
 .scroll-btn:hover {
-  background: var(--link-color, #0366d6);
-  color: white;
-  border-color: var(--link-color, #0366d6);
-}
-
-.scroll-left {
-  margin-left: -20px;
-}
-
-.scroll-right {
-  margin-right: -20px;
+  background: linear-gradient(135deg, #ff8c00, #daa520);
+  border-color: #b8860b;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(255, 140, 0, 0.4);
 }
 
 /* Responsive Design */
@@ -354,21 +400,30 @@
 
 /* Dark theme support */
 @media (prefers-color-scheme: dark) {
+  .featured-posts-section {
+    background: transparent;
+  }
+  
+  .featured-posts-title {
+    color: #ffd700;
+  }
+  
   .featured-post-card {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
   }
   
   .featured-post-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
   }
   
   .card-meta span {
-    background: var(--hover-color, #21262d);
-    border-color: var(--border-color, #30363d);
+    background: rgba(255, 215, 0, 0.1);
+    border-color: #b8860b;
   }
   
   .scroll-btn {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
   }
 }
 </style>
@@ -382,63 +437,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!scrollContainer || !leftBtn || !rightBtn) return;
   
   const cardWidth = 320 + 24; // card width + gap (matching CSS values)
-  
-  function updateScrollButtons() {
-    const scrollLeft = scrollContainer.scrollLeft;
-    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-    
-    leftBtn.style.opacity = scrollLeft <= 0 ? '0.5' : '1';
-    leftBtn.style.pointerEvents = scrollLeft <= 0 ? 'none' : 'auto';
-    
-    rightBtn.style.opacity = scrollLeft >= maxScroll ? '0.5' : '1';
-    rightBtn.style.pointerEvents = scrollLeft >= maxScroll ? 'none' : 'auto';
-  }
-  
-  leftBtn.addEventListener('click', function() {
-    scrollContainer.scrollBy({
-      left: -cardWidth * 2,
-      behavior: 'smooth'
-    });
-  });
-  
-  rightBtn.addEventListener('click', function() {
-    scrollContainer.scrollBy({
-      left: cardWidth * 2,
-      behavior: 'smooth'
-    });
-  });
-  
-  scrollContainer.addEventListener('scroll', updateScrollButtons);
-  window.addEventListener('resize', updateScrollButtons);
-  
-  // Initial button state
-  updateScrollButtons();
-  
-  // Auto-hide scroll indicators on mobile
-  function checkMobile() {
-    const isMobile = window.innerWidth <= 768;
-    const indicators = document.querySelector('.scroll-indicators');
-    if (indicators) {
-      indicators.style.display = isMobile ? 'none' : 'flex';
-    }
-  }
-  
-  checkMobile();
-  window.addEventListener('resize', checkMobile);
-});
-
-</script>
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const scrollContainer = document.querySelector('.featured-posts-scroll');
-  const leftBtn = document.querySelector('.scroll-left');
-  const rightBtn = document.querySelector('.scroll-right');
-  
-  if (!scrollContainer || !leftBtn || !rightBtn) return;
-  
-  const cardWidth = 340 + 24; // card width + gap
   
   function updateScrollButtons() {
     const scrollLeft = scrollContainer.scrollLeft;
