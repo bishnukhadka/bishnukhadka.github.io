@@ -36,366 +36,8 @@ redirect_from:
 <!-- Blog Explorer Tree -->
 <div class="blog-explorer">
   <div class="explorer-content">
-    <div class="file-tree">
-      <!-- Book Notes -->
-      <div class="folder-container" data-folder="Book Notes">
-        <div class="folder-header" data-toggle="book-notes">
-          <i class="fas fa-chevron-right folder-chevron"></i>
-          <i class="fas fa-folder folder-icon"></i>
-          <span class="folder-name">Book Notes</span>
-          <span class="item-count">
-            {% assign book_notes_count = 0 %}
-            {% for post in site.posts %}
-              {% if post.categories contains 'Book Notes' or post.path contains 'Book Notes' %}
-                {% assign book_notes_count = book_notes_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-            {{ book_notes_count }}
-          </span>
-        </div>
-        
-        <div class="folder-content" data-content="book-notes">
-          <!-- LLM Engineers Handbook -->
-          <div class="folder-container" data-folder="Book Notes/LLM Engineers Handbook">
-            <div class="folder-header" data-toggle="llm-engineers-handbook">
-              <i class="fas fa-chevron-right folder-chevron"></i>
-              <i class="fas fa-folder folder-icon"></i>
-              <span class="folder-name">LLM Engineers Handbook</span>
-              <span class="item-count">
-                {% assign llm_count = 0 %}
-                {% for post in site.posts %}
-                  {% if post.categories contains 'LLM Engineers Handbook' or post.path contains 'LLM Engineers Handbook' %}
-                    {% assign llm_count = llm_count | plus: 1 %}
-                  {% endif %}
-                {% endfor %}
-                {{ llm_count }}
-              </span>
-            </div>
-            
-            <div class="folder-content" data-content="llm-engineers-handbook">
-              {% for post in site.posts %}
-                {% if post.categories contains 'LLM Engineers Handbook' or post.path contains 'LLM Engineers Handbook' %}
-                  <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                    <i class="fas fa-file-lines file-icon"></i>
-                    <a href="{{ post.url | relative_url }}" class="file-link">
-                      <span class="file-name">{{ post.title }}</span>
-                      <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                    </a>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </div>
-          
-          <!-- StatQuest -->
-          <div class="folder-container" data-folder="Book Notes/StatQuest">
-            <div class="folder-header" data-toggle="statquest">
-              <i class="fas fa-chevron-right folder-chevron"></i>
-              <i class="fas fa-folder folder-icon"></i>
-              <span class="folder-name">StatQuest</span>
-              <span class="item-count">
-                {% assign statquest_count = 0 %}
-                {% for post in site.posts %}
-                  {% if post.categories contains 'StatQuest' or post.path contains 'StatQuest' %}
-                    {% assign statquest_count = statquest_count | plus: 1 %}
-                  {% endif %}
-                {% endfor %}
-                {{ statquest_count }}
-              </span>
-            </div>
-            
-            <div class="folder-content" data-content="statquest">
-              {% for post in site.posts %}
-                {% if post.categories contains 'StatQuest' or post.path contains 'StatQuest' %}
-                  <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                    <i class="fas fa-file-lines file-icon"></i>
-                    <a href="{{ post.url | relative_url }}" class="file-link">
-                      <span class="file-name">{{ post.title }}</span>
-                      <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                    </a>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Business -->
-      <div class="folder-container" data-folder="Business">
-        <div class="folder-header" data-toggle="business">
-          <i class="fas fa-chevron-right folder-chevron"></i>
-          <i class="fas fa-folder folder-icon"></i>
-          <span class="folder-name">Business</span>
-          <span class="item-count">
-            {% assign business_count = 0 %}
-            {% for post in site.posts %}
-              {% if post.categories contains 'Business' or post.path contains 'Business' %}
-                {% assign business_count = business_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-            {{ business_count }}
-          </span>
-        </div>
-        
-        <div class="folder-content" data-content="business">
-          {% for post in site.posts %}
-            {% if post.categories contains 'Business' or post.path contains 'Business' %}
-              <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                <i class="fas fa-file-lines file-icon"></i>
-                <a href="{{ post.url | relative_url }}" class="file-link">
-                  <span class="file-name">{{ post.title }}</span>
-                  <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                </a>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-
-      <!-- Deutsch -->
-      <div class="folder-container" data-folder="Deutsch">
-        <div class="folder-header" data-toggle="deutsch">
-          <i class="fas fa-chevron-right folder-chevron"></i>
-          <i class="fas fa-folder folder-icon"></i>
-          <span class="folder-name">Deutsch</span>
-          <span class="item-count">
-            {% assign deutsch_count = 0 %}
-            {% for post in site.posts %}
-              {% if post.categories contains 'Deutsch' or post.path contains 'Deutsch' %}
-                {% assign deutsch_count = deutsch_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-            {{ deutsch_count }}
-          </span>
-        </div>
-        
-        <div class="folder-content" data-content="deutsch">
-          <!-- A1 -->
-          <div class="folder-container" data-folder="Deutsch/A1">
-            <div class="folder-header" data-toggle="deutsch-a1">
-              <i class="fas fa-chevron-right folder-chevron"></i>
-              <i class="fas fa-folder folder-icon"></i>
-              <span class="folder-name">A1</span>
-              <span class="item-count">
-                {% assign a1_count = 0 %}
-                {% for post in site.posts %}
-                  {% if post.categories contains 'A1' or post.path contains 'A1' %}
-                    {% assign a1_count = a1_count | plus: 1 %}
-                  {% endif %}
-                {% endfor %}
-                {{ a1_count }}
-              </span>
-            </div>
-            
-            <div class="folder-content" data-content="deutsch-a1">
-              {% for post in site.posts %}
-                {% if post.categories contains 'A1' or post.path contains 'A1' %}
-                  <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                    <i class="fas fa-file-lines file-icon"></i>
-                    <a href="{{ post.url | relative_url }}" class="file-link">
-                      <span class="file-name">{{ post.title }}</span>
-                      <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                    </a>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </div>
-          
-          <!-- Miscellaneous -->
-          <div class="folder-container" data-folder="Deutsch/Miscellaneous">
-            <div class="folder-header" data-toggle="deutsch-misc">
-              <i class="fas fa-chevron-right folder-chevron"></i>
-              <i class="fas fa-folder folder-icon"></i>
-              <span class="folder-name">Miscellaneous</span>
-              <span class="item-count">
-                {% assign misc_count = 0 %}
-                {% for post in site.posts %}
-                  {% if post.categories contains 'Miscellaneous' or post.path contains 'Miscellaneous' %}
-                    {% assign misc_count = misc_count | plus: 1 %}
-                  {% endif %}
-                {% endfor %}
-                {{ misc_count }}
-              </span>
-            </div>
-            
-            <div class="folder-content" data-content="deutsch-misc">
-              {% for post in site.posts %}
-                {% if post.categories contains 'Miscellaneous' or post.path contains 'Miscellaneous' %}
-                  <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                    <i class="fas fa-file-lines file-icon"></i>
-                    <a href="{{ post.url | relative_url }}" class="file-link">
-                      <span class="file-name">{{ post.title }}</span>
-                      <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                    </a>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Language Learning -->
-      <div class="folder-container" data-folder="Language Learning">
-        <div class="folder-header" data-toggle="language-learning">
-          <i class="fas fa-chevron-right folder-chevron"></i>
-          <i class="fas fa-folder folder-icon"></i>
-          <span class="folder-name">Language Learning</span>
-          <span class="item-count">
-            {% assign lang_count = 0 %}
-            {% for post in site.posts %}
-              {% if post.categories contains 'Language Learning' or post.path contains 'Language Learning' %}
-                {% assign lang_count = lang_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-            {{ lang_count }}
-          </span>
-        </div>
-        
-        <div class="folder-content" data-content="language-learning">
-          {% for post in site.posts %}
-            {% if post.categories contains 'Language Learning' or post.path contains 'Language Learning' %}
-              <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                <i class="fas fa-file-lines file-icon"></i>
-                <a href="{{ post.url | relative_url }}" class="file-link">
-                  <span class="file-name">{{ post.title }}</span>
-                  <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                </a>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-
-      <!-- Leet Code -->
-      <div class="folder-container" data-folder="Leet Code">
-        <div class="folder-header" data-toggle="leet-code">
-          <i class="fas fa-chevron-right folder-chevron"></i>
-          <i class="fas fa-folder folder-icon"></i>
-          <span class="folder-name">Leet Code</span>
-          <span class="item-count">
-            {% assign leet_count = 0 %}
-            {% for post in site.posts %}
-              {% if post.categories contains 'Leet Code' or post.path contains 'Leet Code' %}
-                {% assign leet_count = leet_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-            {{ leet_count }}
-          </span>
-        </div>
-        
-        <div class="folder-content" data-content="leet-code">
-          {% for post in site.posts %}
-            {% if post.categories contains 'Leet Code' or post.path contains 'Leet Code' %}
-              <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                <i class="fas fa-file-lines file-icon"></i>
-                <a href="{{ post.url | relative_url }}" class="file-link">
-                  <span class="file-name">{{ post.title }}</span>
-                  <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                </a>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-
-      <!-- ML -->
-      <div class="folder-container" data-folder="ML">
-        <div class="folder-header" data-toggle="ml">
-          <i class="fas fa-chevron-right folder-chevron"></i>
-          <i class="fas fa-folder folder-icon"></i>
-          <span class="folder-name">ML</span>
-          <span class="item-count">
-            {% assign ml_count = 0 %}
-            {% for post in site.posts %}
-              {% if post.categories contains 'ML' or post.path contains 'ML' %}
-                {% assign ml_count = ml_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-            {{ ml_count }}
-          </span>
-        </div>
-        
-        <div class="folder-content" data-content="ml">
-          {% for post in site.posts %}
-            {% if post.categories contains 'ML' or post.path contains 'ML' %}
-              <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                <i class="fas fa-file-lines file-icon"></i>
-                <a href="{{ post.url | relative_url }}" class="file-link">
-                  <span class="file-name">{{ post.title }}</span>
-                  <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                </a>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-
-      <!-- Tabular DL -->
-      <div class="folder-container" data-folder="Tabular DL">
-        <div class="folder-header" data-toggle="tabular-dl">
-          <i class="fas fa-chevron-right folder-chevron"></i>
-          <i class="fas fa-folder folder-icon"></i>
-          <span class="folder-name">Tabular DL</span>
-          <span class="item-count">
-            {% assign tabular_count = 0 %}
-            {% for post in site.posts %}
-              {% if post.categories contains 'Tabular DL' or post.path contains 'Tabular DL' %}
-                {% assign tabular_count = tabular_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-            {{ tabular_count }}
-          </span>
-        </div>
-        
-        <div class="folder-content" data-content="tabular-dl">
-          {% for post in site.posts %}
-            {% if post.categories contains 'Tabular DL' or post.path contains 'Tabular DL' %}
-              <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                <i class="fas fa-file-lines file-icon"></i>
-                <a href="{{ post.url | relative_url }}" class="file-link">
-                  <span class="file-name">{{ post.title }}</span>
-                  <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                </a>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-
-      <!-- Topic Modeling -->
-      <div class="folder-container" data-folder="Topic Modeling">
-        <div class="folder-header" data-toggle="topic-modeling">
-          <i class="fas fa-chevron-right folder-chevron"></i>
-          <i class="fas fa-folder folder-icon"></i>
-          <span class="folder-name">Topic Modeling</span>
-          <span class="item-count">
-            {% assign topic_count = 0 %}
-            {% for post in site.posts %}
-              {% if post.categories contains 'Topic Modeling' or post.path contains 'Topic Modeling' %}
-                {% assign topic_count = topic_count | plus: 1 %}
-              {% endif %}
-            {% endfor %}
-            {{ topic_count }}
-          </span>
-        </div>
-        
-        <div class="folder-content" data-content="topic-modeling">
-          {% for post in site.posts %}
-            {% if post.categories contains 'Topic Modeling' or post.path contains 'Topic Modeling' %}
-              <div class="file-item" data-post data-tags="{{ post.tags | join: ' ' | downcase }}" data-title="{{ post.title | downcase }}" data-summary="{{ post.excerpt | strip_html | downcase }}">
-                <i class="fas fa-file-lines file-icon"></i>
-                <a href="{{ post.url | relative_url }}" class="file-link">
-                  <span class="file-name">{{ post.title }}</span>
-                  <span class="file-date">{{ post.date | date: "%b %d, %Y" }}</span>
-                </a>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
+    <div class="file-tree" id="dynamic-file-tree">
+      <!-- Dynamic content will be generated here -->
     </div>
   </div>
 
@@ -513,73 +155,10 @@ redirect_from:
   margin: 0;
 }
 
-.folder-container .folder-container {
-  margin-left: 20px;
-}
-
-.folder-header {
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-
-.folder-header:hover {
-  background: var(--hover-color, #f6f8fa);
-}
-
-.folder-chevron {
-  width: 16px;
-  font-size: 12px;
-  margin-right: 8px;
-  transition: transform 0.2s ease;
-  color: var(--muted-text-color, #999);
-}
-
-.folder-chevron.expanded {
-  transform: rotate(90deg);
-}
-
-.folder-icon {
-  margin-right: 8px;
-  color: var(--folder-color, #54aeff);
-  font-size: 16px;
-}
-
-.folder-name {
-  font-weight: 500;
-  color: var(--text-color, #333);
-  flex: 1;
-}
-
-.item-count {
-  font-size: 12px;
-  color: var(--muted-text-color, #999);
-  background: var(--badge-background, #f1f3f4);
-  padding: 2px 6px;
-  border-radius: 10px;
-  margin-left: 8px;
-  min-width: 16px;
-  text-align: center;
-}
-
-.folder-content {
-  display: none;
-  padding-left: 0;
-}
-
-.folder-content.expanded {
-  display: block;
-}
-
 .file-item {
   display: flex;
   align-items: center;
   padding: 6px 12px;
-  margin-left: 20px;
   border-radius: 4px;
   transition: all 0.2s ease;
 }
@@ -648,6 +227,64 @@ redirect_from:
   border-radius: 2px;
 }
 
+.folder-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.folder-header:hover {
+  background: var(--hover-color, #f6f8fa);
+}
+
+.folder-chevron {
+  width: 16px;
+  font-size: 12px;
+  margin-right: 8px;
+  transition: transform 0.2s ease;
+  color: var(--muted-text-color, #999);
+}
+
+.folder-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+.folder-icon {
+  margin-right: 8px;
+  color: var(--folder-color, #54aeff);
+  font-size: 16px;
+}
+
+.folder-name {
+  font-weight: 500;
+  color: var(--text-color, #333);
+  flex: 1;
+}
+
+.item-count {
+  font-size: 12px;
+  color: var(--muted-text-color, #999);
+  background: var(--badge-background, #f1f3f4);
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+  min-width: 16px;
+  text-align: center;
+}
+
+.folder-content {
+  display: none;
+  padding-left: 0;
+}
+
+.folder-content.expanded {
+  display: block;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .blog-explorer-header {
@@ -692,6 +329,28 @@ redirect_from:
 
 <!-- JavaScript -->
 <script>
+// Configuration Variables
+const ENABLE_SEARCH = true;
+const ENABLE_TOC = true;
+
+// Dynamic data structure for posts - Fixed Jekyll syntax
+const blogData = {
+  posts: [
+    {%- for post in site.posts -%}
+    {
+      title: {{ post.title | jsonify }},
+      url: {{ post.url | relative_url | jsonify }},
+      date: {{ post.date | date: "%b %d, %Y" | jsonify }},
+      dateISO: {{ post.date | date: "%Y-%m-%d" | jsonify }},
+      categories: {{ post.categories | jsonify }},
+      tags: {{ post.tags | join: " " | downcase | jsonify }},
+      excerpt: {{ post.excerpt | strip_html | strip_newlines | truncate: 200 | jsonify }},
+      path: {{ post.path | jsonify }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+};
+
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('blog-search');
   const clearBtn = document.getElementById('clear-search');
@@ -699,86 +358,257 @@ document.addEventListener('DOMContentLoaded', function() {
   const collapseAllBtn = document.getElementById('collapse-all');
   const explorerContent = document.querySelector('.explorer-content');
   const searchResults = document.getElementById('search-results');
+  const fileTree = document.getElementById('dynamic-file-tree');
   
-  // Search functionality
-  searchInput.addEventListener('input', function() {
-    const query = this.value.trim().toLowerCase();
+  // Initialize features based on configuration
+  if (!ENABLE_SEARCH) {
+    const searchContainer = document.querySelector('.search-container');
+    if (searchContainer) searchContainer.style.display = 'none';
+    if (searchResults) searchResults.style.display = 'none';
+  }
+  
+  if (!ENABLE_TOC) {
+    const explorerControls = document.querySelector('.explorer-controls');
+    if (explorerControls) explorerControls.style.display = 'none';
+    if (explorerContent) explorerContent.style.display = 'none';
+  }
+  
+  // Generate dynamic folder structure
+  if (ENABLE_TOC) {
+    generateDynamicTree();
+  }
+  
+  // Search functionality (only if enabled)
+  if (ENABLE_SEARCH && searchInput && clearBtn) {
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      
+      if (query.length > 0) {
+        clearBtn.style.display = 'block';
+        performSearch(query);
+      } else {
+        clearBtn.style.display = 'none';
+        showExplorer();
+      }
+    });
     
-    if (query.length > 0) {
-      clearBtn.style.display = 'block';
-      performSearch(query);
-    } else {
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
       clearBtn.style.display = 'none';
       showExplorer();
-    }
-  });
+      searchInput.focus();
+    });
+  }
   
-  clearBtn.addEventListener('click', function() {
-    searchInput.value = '';
-    clearBtn.style.display = 'none';
-    showExplorer();
-    searchInput.focus();
-  });
-  
-  // Folder toggle functionality
-  document.querySelectorAll('.folder-header').forEach(header => {
-    header.addEventListener('click', function() {
-      const folderId = this.dataset.toggle;
-      const content = document.querySelector(`[data-content="${folderId}"]`);
-      const chevron = this.querySelector('.folder-chevron');
-      
-      if (content) {
-        if (content.classList.contains('expanded')) {
-          content.classList.remove('expanded');
-          chevron.classList.remove('expanded');
-        } else {
-          content.classList.add('expanded');
-          chevron.classList.add('expanded');
+  // Folder toggle functionality (only if TOC enabled)
+  if (ENABLE_TOC && fileTree) {
+    // Event delegation for dynamically generated content
+    fileTree.addEventListener('click', function(e) {
+      const header = e.target.closest('.folder-header');
+      if (header) {
+        const folderId = header.dataset.toggle;
+        const content = document.querySelector(`[data-content="${folderId}"]`);
+        const chevron = header.querySelector('.folder-chevron');
+        
+        if (content && chevron) {
+          if (content.classList.contains('expanded')) {
+            content.classList.remove('expanded');
+            chevron.classList.remove('expanded');
+          } else {
+            content.classList.add('expanded');
+            chevron.classList.add('expanded');
+          }
         }
       }
     });
-  });
+    
+    // Expand/Collapse all
+    if (expandAllBtn) {
+      expandAllBtn.addEventListener('click', function() {
+        document.querySelectorAll('.folder-content').forEach(content => {
+          content.classList.add('expanded');
+        });
+        document.querySelectorAll('.folder-chevron').forEach(chevron => {
+          chevron.classList.add('expanded');
+        });
+      });
+    }
+    
+    if (collapseAllBtn) {
+      collapseAllBtn.addEventListener('click', function() {
+        document.querySelectorAll('.folder-content').forEach(content => {
+          content.classList.remove('expanded');
+        });
+        document.querySelectorAll('.folder-chevron').forEach(chevron => {
+          chevron.classList.remove('expanded');
+        });
+      });
+    }
+  }
   
-  // Expand/Collapse all
-  expandAllBtn.addEventListener('click', function() {
-    document.querySelectorAll('.folder-content').forEach(content => {
-      content.classList.add('expanded');
+  function generateDynamicTree() {
+    if (!fileTree) return;
+    
+    const folderStructure = {};
+    
+    // Build folder structure from post paths
+    blogData.posts.forEach(post => {
+      const folderPath = extractFolderPath(post.path);
+      
+      if (folderPath.length === 0) {
+        // Post is in root _posts directory
+        if (!folderStructure['Root']) {
+          folderStructure['Root'] = { posts: [], subfolders: {} };
+        }
+        folderStructure['Root'].posts.push(post);
+      } else {
+        // Create nested folder structure
+        let currentLevel = folderStructure;
+        let currentPath = '';
+        
+        folderPath.forEach((folderName, index) => {
+          currentPath = currentPath ? `${currentPath}/${folderName}` : folderName;
+          
+          if (!currentLevel[folderName]) {
+            currentLevel[folderName] = { posts: [], subfolders: {} };
+          }
+          
+          // If this is the last folder in the path, add the post
+          if (index === folderPath.length - 1) {
+            currentLevel[folderName].posts.push(post);
+          }
+          
+          // Move to next level
+          currentLevel = currentLevel[folderName].subfolders;
+        });
+      }
     });
-    document.querySelectorAll('.folder-chevron').forEach(chevron => {
-      chevron.classList.add('expanded');
+    
+    // Generate HTML for folder structure
+    let html = '';
+    Object.keys(folderStructure).sort().forEach(folderName => {
+      html += generateFolderHTML(folderName, folderStructure[folderName], 0, folderName);
     });
-  });
+    
+    fileTree.innerHTML = html;
+  }
   
-  collapseAllBtn.addEventListener('click', function() {
-    document.querySelectorAll('.folder-content').forEach(content => {
-      content.classList.remove('expanded');
+  function extractFolderPath(postPath) {
+    if (!postPath || typeof postPath !== 'string') return [];
+    
+    // Remove _posts/ prefix and filename
+    let path = postPath.replace(/^_posts\//, '');
+    
+    // Split by / to get path segments
+    const segments = path.split('/');
+    
+    // Remove the last segment (filename)
+    segments.pop();
+    
+    // Filter out empty segments and return
+    return segments.filter(segment => segment && segment.trim() !== '');
+  }
+  
+  function generateFolderHTML(folderName, folderData, level, fullPath) {
+    const folderId = generateUniqueFolderId(fullPath, level);
+    const totalPosts = calculateTotalPosts(folderData);
+    
+    // Skip folders with no posts
+    if (totalPosts === 0) return '';
+    
+    let html = `
+      <div class="folder-container" data-folder="${escapeHtml(folderName)}">
+        <div class="folder-header" data-toggle="${folderId}" style="margin-left: ${level * 20}px">
+          <i class="fas fa-chevron-right folder-chevron"></i>
+          <i class="fas fa-folder folder-icon"></i>
+          <span class="folder-name">${escapeHtml(folderName)}</span>
+          <span class="item-count">${totalPosts}</span>
+        </div>
+        <div class="folder-content" data-content="${folderId}">
+    `;
+    
+    // Add subfolders first (sorted alphabetically)
+    const sortedSubfolders = Object.keys(folderData.subfolders).sort();
+    sortedSubfolders.forEach(subfolderName => {
+      const subfolderPath = `${fullPath}/${subfolderName}`;
+      html += generateFolderHTML(
+        subfolderName, 
+        folderData.subfolders[subfolderName], 
+        level + 1, 
+        subfolderPath
+      );
     });
-    document.querySelectorAll('.folder-chevron').forEach(chevron => {
-      chevron.classList.remove('expanded');
+    
+    // Add posts in this folder (sorted oldest to newest)
+    const sortedPosts = [...folderData.posts].sort((a, b) => {
+      return new Date(a.dateISO) - new Date(b.dateISO);
     });
-  });
+    
+    sortedPosts.forEach(post => {
+      html += `
+        <div class="file-item" data-post data-tags="${escapeHtml(post.tags || '')}" data-title="${escapeHtml(post.title.toLowerCase())}" data-summary="${escapeHtml(post.excerpt || '')}" style="margin-left: ${(level + 1) * 20}px">
+          <i class="fas fa-file-lines file-icon"></i>
+          <a href="${escapeHtml(post.url)}" class="file-link">
+            <span class="file-name">${escapeHtml(post.title)}</span>
+            <span class="file-date">${escapeHtml(post.date)}</span>
+          </a>
+        </div>
+      `;
+    });
+    
+    html += `
+        </div>
+      </div>
+    `;
+    
+    return html;
+  }
+  
+  function generateUniqueFolderId(folderPath, level) {
+    if (!folderPath) return 'root-' + level;
+    
+    // Create unique ID based on full path and level
+    return folderPath.toLowerCase()
+      .replace(/[^a-z0-9\/]/g, '-')
+      .replace(/\//g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '') + '-' + level;
+  }
+  
+  function calculateTotalPosts(folderData) {
+    if (!folderData) return 0;
+    
+    let count = folderData.posts ? folderData.posts.length : 0;
+    
+    // Add posts from all subfolders recursively
+    if (folderData.subfolders) {
+      Object.keys(folderData.subfolders).forEach(subfolderName => {
+        count += calculateTotalPosts(folderData.subfolders[subfolderName]);
+      });
+    }
+    
+    return count;
+  }
+  
+  function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
   
   function performSearch(query) {
-    const allPosts = document.querySelectorAll('[data-post]');
     const results = [];
     
-    allPosts.forEach(post => {
-      const title = post.dataset.title || '';
-      const tags = post.dataset.tags || '';
-      const summary = post.dataset.summary || '';
-      const searchText = `${title} ${tags} ${summary}`;
+    blogData.posts.forEach(post => {
+      const searchText = `${post.title.toLowerCase()} ${post.tags || ''} ${post.excerpt || ''}`;
       
       if (searchText.includes(query)) {
-        const link = post.querySelector('.file-link');
-        const fileName = post.querySelector('.file-name').textContent;
-        const fileDate = post.querySelector('.file-date').textContent;
-        const href = link.getAttribute('href');
-        
         results.push({
-          title: fileName,
-          date: fileDate,
-          href: href,
-          relevance: calculateRelevance(query, title, tags, summary)
+          title: post.title,
+          date: post.date,
+          href: post.url,
+          relevance: calculateRelevance(query, post.title.toLowerCase(), post.tags || '', post.excerpt || '')
         });
       }
     });
@@ -811,29 +641,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultsList = document.querySelector('.results-list');
     const resultsCount = document.querySelector('.results-count');
     
+    if (!resultsList || !resultsCount || !explorerContent || !searchResults) return;
+    
     explorerContent.style.display = 'none';
     searchResults.style.display = 'block';
     
-    resultsCount.textContent = `${results.length} result${results.length !== 1 ? 's' : ''}`;
+    resultsCount.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '');
     
     if (results.length === 0) {
       resultsList.innerHTML = '<p style="color: var(--muted-text-color, #999); text-align: center; padding: 2rem;">No posts found matching your search.</p>';
       return;
     }
     
-    resultsList.innerHTML = results.map(result => `
-      <div class="file-item">
-        <i class="fas fa-file-lines file-icon"></i>
-        <a href="${result.href}" class="file-link">
-          <span class="file-name">${highlightText(result.title, query)}</span>
-          <span class="file-date">${result.date}</span>
-        </a>
-      </div>
-    `).join('');
+    resultsList.innerHTML = results.map(function(result) {
+      return '<div class="file-item">' +
+        '<i class="fas fa-file-lines file-icon"></i>' +
+        '<a href="' + escapeHtml(result.href) + '" class="file-link">' +
+        '<span class="file-name">' + highlightText(escapeHtml(result.title), query) + '</span>' +
+        '<span class="file-date">' + escapeHtml(result.date) + '</span>' +
+        '</a>' +
+        '</div>';
+    }).join('');
   }
   
   function highlightText(text, query) {
-    const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+    const regex = new RegExp('(' + escapeRegex(query) + ')', 'gi');
     return text.replace(regex, '<span class="search-highlight">$1</span>');
   }
   
@@ -842,28 +674,48 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   function showExplorer() {
-    explorerContent.style.display = 'block';
-    searchResults.style.display = 'none';
+    if (explorerContent && searchResults) {
+      explorerContent.style.display = 'block';
+      searchResults.style.display = 'none';
+    }
   }
   
   // Keyboard shortcuts
-  document.addEventListener('keydown', function(e) {
-    // Focus search with Ctrl+F or Cmd+F
-    if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
-      e.preventDefault();
-      searchInput.focus();
-    }
-    
-    // Escape to clear search
-    if (e.key === 'Escape' && searchInput === document.activeElement) {
-      if (searchInput.value) {
-        searchInput.value = '';
-        clearBtn.style.display = 'none';
-        showExplorer();
-      } else {
-        searchInput.blur();
+  if (ENABLE_SEARCH && searchInput) {
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+        e.preventDefault();
+        searchInput.focus();
       }
-    }
-  });
+      
+      if (e.key === 'Escape' && searchInput === document.activeElement) {
+        if (searchInput.value) {
+          searchInput.value = '';
+          if (clearBtn) clearBtn.style.display = 'none';
+          showExplorer();
+        } else {
+          searchInput.blur();
+        }
+      }
+    });
+  }
 });
 </script>
+
+{% include featured-posts.html %}
+
+<div class="all-posts-archive">
+  <h2 class="archive__subtitle">
+    <i class="fa fa-calendar" aria-hidden="true"></i> All Posts by Year
+  </h2>
+  
+  {% capture written_year %}'None'{% endcapture %}
+  {% for post in site.posts %}
+    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+    {% if year != written_year %}
+      <h3 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h3>
+      {% capture written_year %}{{ year }}{% endcapture %}
+    {% endif %}
+    {% include archive-single.html %}
+  {% endfor %}
+</div>

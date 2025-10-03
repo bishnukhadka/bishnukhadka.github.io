@@ -7,7 +7,9 @@ summary: "My notes from an excellent YouTube video covering key business concept
 category: 
     - Business
 tags:
-    - youtube, business.
+    - Youtube
+    - MBA
+    - Business
 ---
 
 Links:

@@ -1,27 +1,486 @@
 {% include base_path %}
 
-{% if site.featured_posts.enabled and site.featured_posts.show_on_archive %}
-  {% assign featured_posts = site.posts | where: "featured", true %}
-  {% if featured_posts.size > 0 %}
-    <div class="featured-posts">
-      <h2 class="archive__subtitle">
-        <i class="fa fa-star" aria-hidden="true"></i> Featured Posts
-      </h2>
-      
-      {% assign featured_count = site.featured_posts.count | default: 3 %}
-      {% for post in featured_posts limit: featured_count %}
-        <div class="featured-post__item">
-          {% include archive-single.html type="featured" %}
-        </div>
-      {% endfor %}
-      
-      {% if featured_posts.size > featured_count %}
-        <p class="featured-posts__more">
-          <em>{{ featured_posts.size | minus: featured_count }} more featured posts in the archive below.</em>
-        </p>
+<!-- Featured Posts Section -->
+<div class="featured-posts-section">
+  <h2 class="featured-posts-title">
+    <i class="fas fa-star"></i> Featured Posts
+  </h2>
+  
+  <div class="featured-posts-container">
+    <div class="featured-posts-scroll">
+      {% assign featured_posts = site.posts | where: "featured", true | limit: 8 %}
+      {% if featured_posts.size == 0 %}
+        {% assign featured_posts = site.posts | limit: 6 %}
       {% endif %}
+      
+      {% for post in featured_posts %}
+      <div class="featured-post-card">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-date">
+                <i class="fas fa-calendar-alt"></i>
+                {{ post.date | date: "%b %d, %Y" }}
+              </span>
+              {% if post.categories.size > 0 %}
+              <span class="card-category">
+                <i class="fas fa-folder"></i>
+                {{ post.categories[0] }}
+              </span>
+              {% endif %}
+            </div>
+            
+            <h3 class="card-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h3>
+            
+            <p class="card-excerpt">
+              {{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}
+            </p>
+            
+            {% if post.tags.size > 0 %}
+            <div class="card-tags">
+              {% for tag in post.tags limit: 4 %}
+              <span class="card-tag">{{ tag }}</span>
+              {% endfor %}
+              {% if post.tags.size > 4 %}
+              <span class="card-tag-more">+{{ post.tags.size | minus: 4 }}</span>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+          
+          <div class="card-footer">
+            <a href="{{ post.url | relative_url }}" class="card-read-more">
+              Read More <i class="fas fa-arrow-right"></i>
+            </a>
+            <div class="reading-time">
+              <i class="fas fa-clock"></i>
+              {% assign words = post.content | number_of_words %}
+              {% assign reading_time = words | divided_by: 200 | plus: 1 %}
+              {{ reading_time }} min read
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
     
-    <hr class="featured-posts__separator">
-  {% endif %}
-{% endif %}
+    <!-- Scroll indicators -->
+    <div class="scroll-indicators">
+      <button class="scroll-btn scroll-left" aria-label="Scroll left">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="scroll-btn scroll-right" aria-label="Scroll right">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+.featured-posts-section {
+  margin: 2rem 0 3rem 0;
+}
+
+.featured-posts-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color, #333);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.featured-posts-title i {
+  color: #ffd700;
+}
+
+.featured-posts-container {
+  position: relative;
+}
+
+.featured-posts-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color, #e5e5e5) transparent;
+}
+
+.featured-posts-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.featured-posts-scroll::-webkit-scrollbar-track {
+  background: var(--hover-color, #f6f8fa);
+  border-radius: 3px;
+}
+
+.featured-posts-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-color, #e5e5e5);
+  border-radius: 3px;
+}
+
+.featured-posts-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-text-color, #999);
+}
+
+.featured-post-card {
+  min-width: 320px;
+  max-width: 320px;
+  background: var(--background-color, #fff);
+  border: 1px solid var(--border-color, #e5e5e5);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.featured-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--link-color, #0366d6);
+}
+
+.card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-meta {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted-text-color, #999);
+}
+
+.card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--hover-color, #f6f8fa);
+  border-radius: 8px;
+  border: 1px solid var(--border-color, #e5e5e5);
+}
+
+.card-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.card-title a {
+  color: var(--text-color, #333);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-title a:hover {
+  opacity: 0.8;
+}
+
+.card-excerpt {
+  color: var(--muted-text-color, #999);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  flex: 1;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-tag {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: none;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+.card-tag-more {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(240, 147, 251, 0.3);
+}
+
+.card-footer {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--link-color, #0366d6);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--link-color, #0366d6);
+  border-radius: 16px;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.card-read-more:hover {
+  background: var(--link-color, #0366d6);
+  color: white;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.reading-time {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--muted-text-color, #999);
+  font-weight: 500;
+}
+
+.scroll-indicators {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.scroll-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--background-color, #fff);
+  border: 1px solid var(--border-color, #e5e5e5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-btn:hover {
+  background: var(--link-color, #0366d6);
+  color: white;
+  border-color: var(--link-color, #0366d6);
+}
+
+.scroll-left {
+  margin-left: -20px;
+}
+
+.scroll-right {
+  margin-right: -20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .featured-post-card {
+    min-width: 280px;
+    max-width: 280px;
+  }
+  
+  .scroll-indicators {
+    display: none;
+  }
+  
+  .featured-posts-scroll {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-post-card {
+    min-width: 260px;
+    max-width: 260px;
+  }
+  
+  .card-body {
+    padding: 1.2rem;
+  }
+  
+  .card-footer {
+    padding: 0 1.2rem 1.2rem 1.2rem;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .card-read-more {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .featured-post-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .featured-post-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+  
+  .card-meta span {
+    background: var(--hover-color, #21262d);
+    border-color: var(--border-color, #30363d);
+  }
+  
+  .scroll-btn {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const scrollContainer = document.querySelector('.featured-posts-scroll');
+  const leftBtn = document.querySelector('.scroll-left');
+  const rightBtn = document.querySelector('.scroll-right');
+  
+  if (!scrollContainer || !leftBtn || !rightBtn) return;
+  
+  const cardWidth = 320 + 24; // card width + gap (matching CSS values)
+  
+  function updateScrollButtons() {
+    const scrollLeft = scrollContainer.scrollLeft;
+    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+    
+    leftBtn.style.opacity = scrollLeft <= 0 ? '0.5' : '1';
+    leftBtn.style.pointerEvents = scrollLeft <= 0 ? 'none' : 'auto';
+    
+    rightBtn.style.opacity = scrollLeft >= maxScroll ? '0.5' : '1';
+    rightBtn.style.pointerEvents = scrollLeft >= maxScroll ? 'none' : 'auto';
+  }
+  
+  leftBtn.addEventListener('click', function() {
+    scrollContainer.scrollBy({
+      left: -cardWidth * 2,
+      behavior: 'smooth'
+    });
+  });
+  
+  rightBtn.addEventListener('click', function() {
+    scrollContainer.scrollBy({
+      left: cardWidth * 2,
+      behavior: 'smooth'
+    });
+  });
+  
+  scrollContainer.addEventListener('scroll', updateScrollButtons);
+  window.addEventListener('resize', updateScrollButtons);
+  
+  // Initial button state
+  updateScrollButtons();
+  
+  // Auto-hide scroll indicators on mobile
+  function checkMobile() {
+    const isMobile = window.innerWidth <= 768;
+    const indicators = document.querySelector('.scroll-indicators');
+    if (indicators) {
+      indicators.style.display = isMobile ? 'none' : 'flex';
+    }
+  }
+  
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+});
+
+</script>
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const scrollContainer = document.querySelector('.featured-posts-scroll');
+  const leftBtn = document.querySelector('.scroll-left');
+  const rightBtn = document.querySelector('.scroll-right');
+  
+  if (!scrollContainer || !leftBtn || !rightBtn) return;
+  
+  const cardWidth = 340 + 24; // card width + gap
+  
+  function updateScrollButtons() {
+    const scrollLeft = scrollContainer.scrollLeft;
+    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+    
+    leftBtn.style.opacity = scrollLeft <= 0 ? '0.5' : '1';
+    leftBtn.style.pointerEvents = scrollLeft <= 0 ? 'none' : 'auto';
+    
+    rightBtn.style.opacity = scrollLeft >= maxScroll ? '0.5' : '1';
+    rightBtn.style.pointerEvents = scrollLeft >= maxScroll ? 'none' : 'auto';
+  }
+  
+  leftBtn.addEventListener('click', function() {
+    scrollContainer.scrollBy({
+      left: -cardWidth * 2,
+      behavior: 'smooth'
+    });
+  });
+  
+  rightBtn.addEventListener('click', function() {
+    scrollContainer.scrollBy({
+      left: cardWidth * 2,
+      behavior: 'smooth'
+    });
+  });
+  
+  scrollContainer.addEventListener('scroll', updateScrollButtons);
+  window.addEventListener('resize', updateScrollButtons);
+  
+  // Initial button state
+  updateScrollButtons();
+  
+  // Auto-hide scroll indicators on mobile
+  function checkMobile() {
+    const isMobile = window.innerWidth <= 768;
+    const indicators = document.querySelector('.scroll-indicators');
+    if (indicators) {
+      indicators.style.display = isMobile ? 'none' : 'flex';
+    }
+  }
+  
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+});
+</script>
