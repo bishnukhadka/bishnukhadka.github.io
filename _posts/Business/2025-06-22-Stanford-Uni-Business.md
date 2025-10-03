@@ -2,6 +2,7 @@
 title: "Youtube: Everything I Learned at Stanford Business School in 28 Minutes"
 date: 2025-06-22
 permalink: /post/2025/06/yt-stanford-business
+featured: true
 category: 
     - Business
 tags:
@@ -11,6 +12,8 @@ tags:
 Links:
 - Channel: [jayhoovy](hhttps://www.youtube.com/@jayhoovy)
 - Video: [https://www.youtube.com/watch?v=vIkRbAvaQjs&t=49s](https://www.youtube.com/watch?v=vIkRbAvaQjs&t=49s)
+
+These are my notes from an excellent YouTube video covering key business concepts taught at Stanford Business School, condensed into 28 minutes of actionable insights.
 
 
 # Notes

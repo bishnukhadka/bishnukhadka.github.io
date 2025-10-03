@@ -1,0 +1,276 @@
+/* Featured Posts Styling */
+.featured-posts {
+  margin-bottom: 2em;
+  background: rgba(238, 238, 238, 0.3);
+  border-radius: 6px;
+  padding: 1.5em;
+  border-left: 4px solid #f39c12;
+}
+
+.featured-posts h2.archive__subtitle {
+  color: #f39c12;
+  margin-bottom: 1em;
+}
+
+.featured-post__item {
+  margin-bottom: 1em;
+}
+
+.featured-posts__separator {
+  margin: 2em 0;
+  border: 0;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.featured-posts__more {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-top: 1em;
+}
+
+/* Blog Post Islands Styling - Enhanced with Visual Design Principles */
+.list__item {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.8em;
+  padding: 1.8em 2em;
+  border: 1px solid rgba(52, 152, 219, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.list__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: rgba(52, 152, 219, 0.2);
+}
+
+.list__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    #3498db 0%, 
+    #2ecc71 25%, 
+    #f39c12 50%, 
+    #e74c3c 75%, 
+    #9b59b6 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.list__item:hover::before {
+  opacity: 1;
+}
+
+/* Featured post islands - Golden Hour color palette */
+.featured-post {
+  background: linear-gradient(135deg, 
+    #fff8e7 0%, 
+    #ffffff 50%, 
+    #fef9ed 100%
+  );
+  border: 2px solid rgba(243, 156, 18, 0.15);
+  box-shadow: 0 4px 20px rgba(243, 156, 18, 0.1);
+  position: relative;
+}
+
+.featured-post::before {
+  background: linear-gradient(90deg, 
+    #f39c12 0%, 
+    #e67e22 50%, 
+    #d68910 100%
+  );
+  opacity: 1;
+  height: 5px;
+}
+
+.featured-post:hover {
+  background: linear-gradient(135deg, 
+    #fff5d9 0%, 
+    #fefefe 50%, 
+    #fef7e6 100%
+  );
+  box-shadow: 0 8px 30px rgba(243, 156, 18, 0.15);
+  transform: translateY(-6px);
+}
+
+/* Archive item styling within islands */
+.archive__item {
+  margin: 0;
+  padding: 0;
+}
+
+.archive__item-title {
+  font-size: 1.45em;
+  font-weight: 700;
+  margin: 0 0 0.5em 0;  /* Minimal top spacing */
+  line-height: 1.2;     /* Tight, professional line height */
+  color: #1a252f;       /* Darker, more professional color */
+  letter-spacing: -0.02em; /* Slight negative letter spacing for elegance */
+}
+
+.archive__item-title a {
+  color: #1a252f;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: linear-gradient(135deg, transparent 0%, transparent 100%);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+}
+
+.archive__item-title a:hover {
+  color: #2980b9;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  background-size: 100% 2px;
+}
+
+.archive__item-excerpt {
+  color: #4a5568;       /* Warmer gray with better contrast */
+  line-height: 1.65;
+  margin-bottom: 1em;
+  font-size: 0.95em;
+  font-weight: 400;
+}
+
+.page__meta {
+  color: #718096;       /* Balanced gray for metadata */
+  font-size: 0.82em;
+  margin: 0 0 0.4em 0;  /* Minimal spacing */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6em;
+  font-weight: 500;
+}
+
+.page__date {
+  color: #718096;
+  font-size: 0.82em;
+  margin: 0 0 0.4em 0;  /* Consistent minimal spacing */
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 500;
+}
+
+/* Enhanced featured post indicator with color theory */
+.featured-star {
+  color: #f39c12;
+  margin-right: 0.4em;
+  font-size: 1em;
+  filter: drop-shadow(0 2px 4px rgba(243, 156, 18, 0.3));
+  animation: subtle-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-glow {
+  0% { filter: drop-shadow(0 2px 4px rgba(243, 156, 18, 0.3)); }
+  100% { filter: drop-shadow(0 2px 6px rgba(243, 156, 18, 0.5)); }
+}
+
+/* Enhanced archive sections with visual hierarchy */
+.all-posts-archive {
+  margin-top: 2em;
+}
+
+.all-posts-archive h2.archive__subtitle {
+  color: #1a252f;
+  border-bottom: 3px solid transparent;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.6em;
+  margin-bottom: 2em;
+  font-size: 2em;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  position: relative;
+}
+
+.all-posts-archive h2.archive__subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border-radius: 2px;
+}
+
+/* Year headings with sophisticated design */
+.all-posts-archive h3.archive__subtitle {
+  color: #2d3748;
+  font-size: 1.4em;
+  margin: 3em 0 1.8em 0;
+  padding: 0.8em 1.5em;
+  background: linear-gradient(135deg, 
+    rgba(52, 152, 219, 0.05) 0%, 
+    rgba(52, 152, 219, 0.02) 100%
+  );
+  border-radius: 12px;
+  border-left: 5px solid #3498db;
+  position: relative;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.08);
+}
+
+.all-posts-archive h3.archive__subtitle::before {
+  content: "📅";
+  margin-right: 0.6em;
+  font-size: 1.1em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .list__item {
+    padding: 1.2em;
+    margin-bottom: 1.5em;
+  }
+  
+  .archive__item-title {
+    font-size: 1.2em;
+  }
+  
+  .all-posts-archive h2.archive__subtitle {
+    font-size: 1.5em;
+  }
+  
+  .all-posts-archive h3.archive__subtitle {
+    font-size: 1.3em;
+    padding: 0.4em 0.8em;
+  }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list__item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.list__item:nth-child(2) { animation-delay: 0.1s; }
+.list__item:nth-child(3) { animation-delay: 0.2s; }
+.list__item:nth-child(4) { animation-delay: 0.3s; }
+.list__item:nth-child(5) { animation-delay: 0.4s; }
