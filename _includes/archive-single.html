@@ -49,10 +49,44 @@
          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}
 
-    {% if post.excerpt and site.read_more != 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
-    {% elsif post.excerpt and site.read_more == 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+    {% comment %}<!-- Enhanced excerpt handling with 'summary' support for better UX -->{% endcomment %}
+    {% if post.summary %}
+      {% comment %}<!-- Use 'summary' field if available (user-friendly) -->{% endcomment %}
+      {% assign excerpt_content = post.summary | markdownify | strip_html | truncatewords: 50 %}
+      {% if site.read_more == 'enabled' %}
+        <p class="archive__item-excerpt" itemprop="description">
+          {{ excerpt_content }}
+          {% if post.content != post.summary %}
+            <strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong>
+          {% endif %}
+        </p>
+      {% else %}
+        <p class="archive__item-excerpt" itemprop="description">{{ excerpt_content }}</p>
+      {% endif %}
+    {% elsif post.excerpt %}
+      {% comment %}<!-- Fallback to 'excerpt' for backward compatibility -->{% endcomment %}
+      {% assign excerpt_content = post.excerpt | markdownify | strip_html | truncatewords: 50 %}
+      {% if site.read_more == 'enabled' %}
+        <p class="archive__item-excerpt" itemprop="description">
+          {{ excerpt_content }}
+          {% if post.content != post.excerpt %}
+            <strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong>
+          {% endif %}
+        </p>
+      {% else %}
+        <p class="archive__item-excerpt" itemprop="description">{{ excerpt_content }}</p>
+      {% endif %}
+    {% elsif post.content %}
+      {% comment %}<!-- Fallback for posts without explicit summary/excerpt -->{% endcomment %}
+      {% assign auto_excerpt = post.content | markdownify | strip_html | truncatewords: 50 %}
+      {% if site.read_more == 'enabled' %}
+        <p class="archive__item-excerpt" itemprop="description">
+          {{ auto_excerpt }}
+          <strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong>
+        </p>
+      {% else %}
+        <p class="archive__item-excerpt" itemprop="description">{{ auto_excerpt }}</p>
+      {% endif %}
     {% endif %}
     
     {% if post.citation and post.paperurl and post.slidesurl and post.bibtexurl %}

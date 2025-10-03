@@ -203,6 +203,7 @@ markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
+show_excerpts: true
 incremental: false
 
 # Markdown Processing

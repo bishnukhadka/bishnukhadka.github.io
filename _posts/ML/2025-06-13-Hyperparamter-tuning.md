@@ -2,6 +2,7 @@
 title: "Hyperparamter Tuning"
 date: 2025-06-13
 permalink: /post/2025/06/tuning
+summary: "A comprehensive guide to hyperparameter tuning in data science, covering Optuna and other optimization techniques for improving machine learning model performance."
 category: 
     - ML
 tags:

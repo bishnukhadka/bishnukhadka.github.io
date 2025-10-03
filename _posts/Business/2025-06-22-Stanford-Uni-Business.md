@@ -3,6 +3,7 @@ title: "Youtube: Everything I Learned at Stanford Business School in 28 Minutes"
 date: 2025-06-22
 permalink: /post/2025/06/yt-stanford-business
 featured: true
+summary: "My notes from an excellent YouTube video covering key business concepts taught at Stanford Business School, condensed into 28 minutes of actionable insights."
 category: 
     - Business
 tags:
