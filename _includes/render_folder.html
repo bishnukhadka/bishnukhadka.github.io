@@ -1,0 +1,80 @@
+{% comment %} Recursive folder renderer for proper hierarchy {% endcomment %}
+{% assign folder_path = include.folder_path %}
+{% assign all_posts = include.folder_posts %}
+{% assign level = include.level | default: 0 %}
+
+{% comment %} Generate unique folder ID {% endcomment %}
+{% assign folder_id = folder_path | slugify %}
+
+{% comment %} Get folder name (last part of path) {% endcomment %}
+{% assign folder_parts = folder_path | split: '/' %}
+{% assign folder_name = folder_parts.last %}
+
+{% comment %} Count direct items in this folder {% endcomment %}
+{% assign direct_posts_count = 0 %}
+{% assign direct_subfolders = '' | split: '' %}
+
+{% comment %} Find direct posts in this folder {% endcomment %}
+{% for post_info in all_posts %}
+  {% assign info_parts = post_info | split: '|||' %}
+  {% assign post_folder = info_parts[0] %}
+  {% if post_folder == folder_path %}
+    {% assign direct_posts_count = direct_posts_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} Find direct subfolders {% endcomment %}
+{% for post_info in all_posts %}
+  {% assign info_parts = post_info | split: '|||' %}
+  {% assign post_folder = info_parts[0] %}
+  {% if post_folder != folder_path and post_folder contains folder_path %}
+    {% assign post_folder_parts = post_folder | split: '/' %}
+    {% assign expected_parts_count = folder_parts.size | plus: 1 %}
+    {% if post_folder_parts.size == expected_parts_count %}
+      {% assign parent_path = post_folder_parts | slice: 0, folder_parts.size | join: '/' %}
+      {% if parent_path == folder_path %}
+        {% assign subfolder = post_folder_parts | slice: 0, expected_parts_count | join: '/' %}
+        {% unless direct_subfolders contains subfolder %}
+          {% assign direct_subfolders = direct_subfolders | push: subfolder %}
+        {% endunless %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} Calculate total count {% endcomment %}
+{% assign total_count = direct_posts_count | plus: direct_subfolders.size %}
+
+<div class="folder-container" data-folder="{{ folder_path }}">
+  <div class="folder-header" data-toggle="{{ folder_id }}">
+    <i class="fas fa-chevron-right folder-chevron"></i>
+    <i class="fas fa-folder folder-icon"></i>
+    <span class="folder-name">{{ folder_name }}</span>
+    {% if total_count > 0 %}
+      <span class="item-count">{{ total_count }}</span>
+    {% endif %}
+  </div>
+  
+  <div class="folder-content" data-content="{{ folder_id }}">
+    {% comment %} Sort and render subfolders first {% endcomment %}
+    {% assign sorted_subfolders = direct_subfolders | sort %}
+    {% for subfolder in sorted_subfolders %}
+      {% include render_folder.html folder_path=subfolder folder_posts=all_posts level=level %}
+    {% endfor %}
+    
+    {% comment %} Then render direct posts in this folder {% endcomment %}
+    {% for post_info in all_posts %}
+      {% assign info_parts = post_info | split: '|||' %}
+      {% assign post_folder = info_parts[0] %}
+      {% if post_folder == folder_path %}
+        <div class="file-item" data-post data-tags="{{ info_parts[4] | downcase }}" data-title="{{ info_parts[1] | downcase }}" data-summary="{{ info_parts[5] | default: '' | downcase }}">
+          <i class="fas fa-file-alt file-icon"></i>
+          <a href="{{ info_parts[2] | relative_url }}" class="file-link">
+            <span class="file-name">{{ info_parts[1] }}</span>
+            <span class="file-date">{{ info_parts[3] | date: "%b %d, %Y" }}</span>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

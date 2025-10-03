@@ -1,16 +1,706 @@
 ---
 layout: archive
 permalink: /year-archive/
-title: "Blog posts"
+title: "Blog Explorer"
 author_profile: true
-toc: true
-toc_label: "Navigate Posts"
-toc_icon: "list"
+toc: false
 redirect_from:
   - /wordpress/blog-posts/
+  - /blog-explorer/
 ---
 
 {% include base_path %}
+
+<!-- Search and Filter Controls -->
+<div class="blog-explorer-header">
+  <div class="search-container">
+    <div class="search-box">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="blog-search" placeholder="Search posts..." autocomplete="off">
+      <button id="clear-search" class="clear-btn" style="display: none;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="explorer-controls">
+    <button id="expand-all" class="control-btn">
+      <i class="fas fa-expand-arrows-alt"></i> Expand All
+    </button>
+    <button id="collapse-all" class="control-btn">
+      <i class="fas fa-compress-arrows-alt"></i> Collapse All
+    </button>
+  </div>
+</div>
+
+<!-- Blog Explorer Tree -->
+<div class="blog-explorer">
+  <div class="explorer-content">
+    <div class="file-tree" id="dynamic-file-tree">
+      <!-- Dynamic content will be generated here -->
+    </div>
+  </div>
+
+  <!-- Search Results -->
+  <div class="search-results" id="search-results" style="display: none;">
+    <div class="results-header">
+      <h3>Search Results</h3>
+      <span class="results-count"></span>
+    </div>
+    <div class="results-list"></div>
+  </div>
+</div>
+
+<!-- Styles -->
+<style>
+.blog-explorer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 16px 12px 45px;
+  border: 2px solid var(--border-color, #e5e5e5);
+  border-radius: 8px;
+  font-size: 16px;
+  background: var(--background-color, #fff);
+  color: var(--text-color, #333);
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--link-color, #0366d6);
+  box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--muted-text-color, #999);
+  z-index: 1;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--muted-text-color, #999);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+  color: var(--text-color, #333);
+  background: var(--border-color, #e5e5e5);
+}
+
+.explorer-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.control-btn {
+  padding: 8px 12px;
+  background: var(--background-color, #fff);
+  border: 1px solid var(--border-color, #e5e5e5);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-color, #333);
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background: var(--hover-color, #f6f8fa);
+  border-color: var(--link-color, #0366d6);
+}
+
+.blog-explorer {
+  background: var(--background-color, #fff);
+  border: 1px solid var(--border-color, #e5e5e5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.explorer-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.file-tree {
+  padding: 1rem;
+}
+
+.folder-container {
+  margin: 0;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.file-item:hover {
+  background: var(--hover-color, #f6f8fa);
+}
+
+.file-icon {
+  margin-right: 8px;
+  color: var(--file-color, #54aeff);
+  font-size: 14px;
+}
+
+.file-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-decoration: none;
+  color: var(--text-color, #333);
+}
+
+.file-link:hover {
+  text-decoration: none;
+  color: var(--link-color, #0366d6);
+}
+
+.file-name {
+  font-weight: 400;
+  flex: 1;
+}
+
+.file-date {
+  font-size: 12px;
+  color: var(--muted-text-color, #999);
+  margin-left: 12px;
+}
+
+.search-results {
+  padding: 1rem;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color, #e5e5e5);
+}
+
+.results-header h3 {
+  margin: 0;
+  color: var(--text-color, #333);
+}
+
+.results-count {
+  font-size: 14px;
+  color: var(--muted-text-color, #999);
+}
+
+.search-highlight {
+  background: #fff59d;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.folder-header:hover {
+  background: var(--hover-color, #f6f8fa);
+}
+
+.folder-chevron {
+  width: 16px;
+  font-size: 12px;
+  margin-right: 8px;
+  transition: transform 0.2s ease;
+  color: var(--muted-text-color, #999);
+}
+
+.folder-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+.folder-icon {
+  margin-right: 8px;
+  color: var(--folder-color, #54aeff);
+  font-size: 16px;
+}
+
+.folder-name {
+  font-weight: 500;
+  color: var(--text-color, #333);
+  flex: 1;
+}
+
+.item-count {
+  font-size: 12px;
+  color: var(--muted-text-color, #999);
+  background: var(--badge-background, #f1f3f4);
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+  min-width: 16px;
+  text-align: center;
+}
+
+.folder-content {
+  display: none;
+  padding-left: 0;
+}
+
+.folder-content.expanded {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .blog-explorer-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-container {
+    min-width: unset;
+  }
+  
+  .explorer-controls {
+    justify-content: center;
+  }
+  
+  .file-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .file-date {
+    margin-left: 0;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #0d1117;
+    --text-color: #f0f6fc;
+    --muted-text-color: #7d8590;
+    --border-color: #30363d;
+    --hover-color: #21262d;
+    --link-color: #58a6ff;
+    --folder-color: #58a6ff;
+    --file-color: #58a6ff;
+    --badge-background: #21262d;
+  }
+}
+</style>
+
+<!-- JavaScript -->
+<script>
+// Configuration Variables
+const ENABLE_SEARCH = true;
+const ENABLE_TOC = true;
+
+// Dynamic data structure for posts - Fixed Jekyll syntax
+const blogData = {
+  posts: [
+    {%- for post in site.posts -%}
+    {
+      title: {{ post.title | jsonify }},
+      url: {{ post.url | relative_url | jsonify }},
+      date: {{ post.date | date: "%b %d, %Y" | jsonify }},
+      dateISO: {{ post.date | date: "%Y-%m-%d" | jsonify }},
+      categories: {{ post.categories | jsonify }},
+      tags: {{ post.tags | join: " " | downcase | jsonify }},
+      excerpt: {{ post.excerpt | strip_html | strip_newlines | truncate: 200 | jsonify }},
+      path: {{ post.path | jsonify }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('blog-search');
+  const clearBtn = document.getElementById('clear-search');
+  const expandAllBtn = document.getElementById('expand-all');
+  const collapseAllBtn = document.getElementById('collapse-all');
+  const explorerContent = document.querySelector('.explorer-content');
+  const searchResults = document.getElementById('search-results');
+  const fileTree = document.getElementById('dynamic-file-tree');
+  
+  // Initialize features based on configuration
+  if (!ENABLE_SEARCH) {
+    const searchContainer = document.querySelector('.search-container');
+    if (searchContainer) searchContainer.style.display = 'none';
+    if (searchResults) searchResults.style.display = 'none';
+  }
+  
+  if (!ENABLE_TOC) {
+    const explorerControls = document.querySelector('.explorer-controls');
+    if (explorerControls) explorerControls.style.display = 'none';
+    if (explorerContent) explorerContent.style.display = 'none';
+  }
+  
+  // Generate dynamic folder structure
+  if (ENABLE_TOC) {
+    generateDynamicTree();
+  }
+  
+  // Search functionality (only if enabled)
+  if (ENABLE_SEARCH && searchInput && clearBtn) {
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      
+      if (query.length > 0) {
+        clearBtn.style.display = 'block';
+        performSearch(query);
+      } else {
+        clearBtn.style.display = 'none';
+        showExplorer();
+      }
+    });
+    
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      showExplorer();
+      searchInput.focus();
+    });
+  }
+  
+  // Folder toggle functionality (only if TOC enabled)
+  if (ENABLE_TOC && fileTree) {
+    // Event delegation for dynamically generated content
+    fileTree.addEventListener('click', function(e) {
+      const header = e.target.closest('.folder-header');
+      if (header) {
+        const folderId = header.dataset.toggle;
+        const content = document.querySelector(`[data-content="${folderId}"]`);
+        const chevron = header.querySelector('.folder-chevron');
+        
+        if (content && chevron) {
+          if (content.classList.contains('expanded')) {
+            content.classList.remove('expanded');
+            chevron.classList.remove('expanded');
+          } else {
+            content.classList.add('expanded');
+            chevron.classList.add('expanded');
+          }
+        }
+      }
+    });
+    
+    // Expand/Collapse all
+    if (expandAllBtn) {
+      expandAllBtn.addEventListener('click', function() {
+        document.querySelectorAll('.folder-content').forEach(content => {
+          content.classList.add('expanded');
+        });
+        document.querySelectorAll('.folder-chevron').forEach(chevron => {
+          chevron.classList.add('expanded');
+        });
+      });
+    }
+    
+    if (collapseAllBtn) {
+      collapseAllBtn.addEventListener('click', function() {
+        document.querySelectorAll('.folder-content').forEach(content => {
+          content.classList.remove('expanded');
+        });
+        document.querySelectorAll('.folder-chevron').forEach(chevron => {
+          chevron.classList.remove('expanded');
+        });
+      });
+    }
+  }
+  
+  function generateDynamicTree() {
+    if (!fileTree) return;
+    
+    const folderStructure = {};
+    
+    // Build folder structure from post paths
+    blogData.posts.forEach(post => {
+      const folderPath = extractFolderPath(post.path);
+      
+      if (folderPath.length === 0) {
+        // Post is in root _posts directory
+        if (!folderStructure['Root']) {
+          folderStructure['Root'] = { posts: [], subfolders: {} };
+        }
+        folderStructure['Root'].posts.push(post);
+      } else {
+        // Create nested folder structure
+        let currentLevel = folderStructure;
+        let currentPath = '';
+        
+        folderPath.forEach((folderName, index) => {
+          currentPath = currentPath ? `${currentPath}/${folderName}` : folderName;
+          
+          if (!currentLevel[folderName]) {
+            currentLevel[folderName] = { posts: [], subfolders: {} };
+          }
+          
+          // If this is the last folder in the path, add the post
+          if (index === folderPath.length - 1) {
+            currentLevel[folderName].posts.push(post);
+          }
+          
+          // Move to next level
+          currentLevel = currentLevel[folderName].subfolders;
+        });
+      }
+    });
+    
+    // Generate HTML for folder structure
+    let html = '';
+    Object.keys(folderStructure).sort().forEach(folderName => {
+      html += generateFolderHTML(folderName, folderStructure[folderName], 0, folderName);
+    });
+    
+    fileTree.innerHTML = html;
+  }
+  
+  function extractFolderPath(postPath) {
+    if (!postPath || typeof postPath !== 'string') return [];
+    
+    // Remove _posts/ prefix and filename
+    let path = postPath.replace(/^_posts\//, '');
+    
+    // Split by / to get path segments
+    const segments = path.split('/');
+    
+    // Remove the last segment (filename)
+    segments.pop();
+    
+    // Filter out empty segments and return
+    return segments.filter(segment => segment && segment.trim() !== '');
+  }
+  
+  function generateFolderHTML(folderName, folderData, level, fullPath) {
+    const folderId = generateUniqueFolderId(fullPath, level);
+    const totalPosts = calculateTotalPosts(folderData);
+    
+    // Skip folders with no posts
+    if (totalPosts === 0) return '';
+    
+    let html = `
+      <div class="folder-container" data-folder="${escapeHtml(folderName)}">
+        <div class="folder-header" data-toggle="${folderId}" style="margin-left: ${level * 20}px">
+          <i class="fas fa-chevron-right folder-chevron"></i>
+          <i class="fas fa-folder folder-icon"></i>
+          <span class="folder-name">${escapeHtml(folderName)}</span>
+          <span class="item-count">${totalPosts}</span>
+        </div>
+        <div class="folder-content" data-content="${folderId}">
+    `;
+    
+    // Add subfolders first (sorted alphabetically)
+    const sortedSubfolders = Object.keys(folderData.subfolders).sort();
+    sortedSubfolders.forEach(subfolderName => {
+      const subfolderPath = `${fullPath}/${subfolderName}`;
+      html += generateFolderHTML(
+        subfolderName, 
+        folderData.subfolders[subfolderName], 
+        level + 1, 
+        subfolderPath
+      );
+    });
+    
+    // Add posts in this folder (sorted oldest to newest)
+    const sortedPosts = [...folderData.posts].sort((a, b) => {
+      return new Date(a.dateISO) - new Date(b.dateISO);
+    });
+    
+    sortedPosts.forEach(post => {
+      html += `
+        <div class="file-item" data-post data-tags="${escapeHtml(post.tags || '')}" data-title="${escapeHtml(post.title.toLowerCase())}" data-summary="${escapeHtml(post.excerpt || '')}" style="margin-left: ${(level + 1) * 20}px">
+          <i class="fas fa-file-lines file-icon"></i>
+          <a href="${escapeHtml(post.url)}" class="file-link">
+            <span class="file-name">${escapeHtml(post.title)}</span>
+            <span class="file-date">${escapeHtml(post.date)}</span>
+          </a>
+        </div>
+      `;
+    });
+    
+    html += `
+        </div>
+      </div>
+    `;
+    
+    return html;
+  }
+  
+  function generateUniqueFolderId(folderPath, level) {
+    if (!folderPath) return 'root-' + level;
+    
+    // Create unique ID based on full path and level
+    return folderPath.toLowerCase()
+      .replace(/[^a-z0-9\/]/g, '-')
+      .replace(/\//g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '') + '-' + level;
+  }
+  
+  function calculateTotalPosts(folderData) {
+    if (!folderData) return 0;
+    
+    let count = folderData.posts ? folderData.posts.length : 0;
+    
+    // Add posts from all subfolders recursively
+    if (folderData.subfolders) {
+      Object.keys(folderData.subfolders).forEach(subfolderName => {
+        count += calculateTotalPosts(folderData.subfolders[subfolderName]);
+      });
+    }
+    
+    return count;
+  }
+  
+  function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
+  function performSearch(query) {
+    const results = [];
+    
+    blogData.posts.forEach(post => {
+      const searchText = `${post.title.toLowerCase()} ${post.tags || ''} ${post.excerpt || ''}`;
+      
+      if (searchText.includes(query)) {
+        results.push({
+          title: post.title,
+          date: post.date,
+          href: post.url,
+          relevance: calculateRelevance(query, post.title.toLowerCase(), post.tags || '', post.excerpt || '')
+        });
+      }
+    });
+    
+    // Sort by relevance
+    results.sort((a, b) => b.relevance - a.relevance);
+    
+    displaySearchResults(results, query);
+  }
+  
+  function calculateRelevance(query, title, tags, summary) {
+    let score = 0;
+    
+    // Title matches get highest score
+    if (title.includes(query)) score += 10;
+    
+    // Tag matches get medium score
+    if (tags.includes(query)) score += 5;
+    
+    // Summary matches get lower score
+    if (summary.includes(query)) score += 2;
+    
+    // Exact matches get bonus
+    if (title === query) score += 20;
+    
+    return score;
+  }
+  
+  function displaySearchResults(results, query) {
+    const resultsList = document.querySelector('.results-list');
+    const resultsCount = document.querySelector('.results-count');
+    
+    if (!resultsList || !resultsCount || !explorerContent || !searchResults) return;
+    
+    explorerContent.style.display = 'none';
+    searchResults.style.display = 'block';
+    
+    resultsCount.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '');
+    
+    if (results.length === 0) {
+      resultsList.innerHTML = '<p style="color: var(--muted-text-color, #999); text-align: center; padding: 2rem;">No posts found matching your search.</p>';
+      return;
+    }
+    
+    resultsList.innerHTML = results.map(function(result) {
+      return '<div class="file-item">' +
+        '<i class="fas fa-file-lines file-icon"></i>' +
+        '<a href="' + escapeHtml(result.href) + '" class="file-link">' +
+        '<span class="file-name">' + highlightText(escapeHtml(result.title), query) + '</span>' +
+        '<span class="file-date">' + escapeHtml(result.date) + '</span>' +
+        '</a>' +
+        '</div>';
+    }).join('');
+  }
+  
+  function highlightText(text, query) {
+    const regex = new RegExp('(' + escapeRegex(query) + ')', 'gi');
+    return text.replace(regex, '<span class="search-highlight">$1</span>');
+  }
+  
+  function escapeRegex(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+  
+  function showExplorer() {
+    if (explorerContent && searchResults) {
+      explorerContent.style.display = 'block';
+      searchResults.style.display = 'none';
+    }
+  }
+  
+  // Keyboard shortcuts
+  if (ENABLE_SEARCH && searchInput) {
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      
+      if (e.key === 'Escape' && searchInput === document.activeElement) {
+        if (searchInput.value) {
+          searchInput.value = '';
+          if (clearBtn) clearBtn.style.display = 'none';
+          showExplorer();
+        } else {
+          searchInput.blur();
+        }
+      }
+    });
+  }
+});
+</script>
 
 {% include featured-posts.html %}
 

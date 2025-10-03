@@ -1,11 +1,13 @@
 ---
 title: "Learning Deutsch by learning Phrases and Sentences"
 date: 2025-09-28
-permalink: /post/2025/06/learning-phrases and sentences
+permalink: /post/2025/06/learning-phrases-and-sentences
 category: 
-    - German, Deutsch
+    - Deutsch
 tags:
     - German
+    - Deutsch
+featured: true
 ---
 
 When it comes to language learning, focusing on phrases and sentences rather than isolated words can make a significant difference. While memorizing vocabulary lists might seem like a straightforward approach, it often leaves learners struggling to use those words in real-life situations. Words alone rarely convey complete meaning; context is crucial. By learning phrases and sentences, you naturally absorb grammar, word order, and common expressions, making your speech sound more natural and fluent.
