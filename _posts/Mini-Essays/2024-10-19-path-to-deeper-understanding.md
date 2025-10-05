@@ -12,11 +12,7 @@ tags:
     - essays
 featured: true
 ---
-
-
-# Path to Deeper Understanding, one Mini-Essay at a time
-
-Will mini-essays make me a better research paper author? We will find out in a year. 
+Will mini-essays make me a better research paper author? Will it make me a better thinker? Will it make me a better person? These are all questions that I want to find the answer to. May be we will find out in a few year. 
 
 A deeper understanding of your area of interest is a dream for all humans and specially for someone aspiring to be a researcher. Deeper understanding allows you to ask deep questions and help find answers. Writing mini-essays forces you to pen to paper, what you know and most importantly what you do not. It reveals the knowledge gaps that you have. And you have to revisit the material for fulfilling the gaps in knowledge. And writing such that you are teaching to someone will make you understanding improve. The famous Feynman Technique. 
 

@@ -13,9 +13,10 @@ tags:
 featured: true
 ---
 
-
-"We do not learn from experience. We learn from reflecting on those experiences" 
-                        -John Dewey 
+```
+We do not learn from experience. We learn from reflecting on those experiences.                         
+                            -John Dewey
+``` 
 
 Learning is defined as the modification in behavior through experience. So if you approach the same problem differently from  your previous attempt, then we can say you have learned something. This is why the quote from John Dewey is resonating with me this morning. We indeed do not learn from experiences, but from the reflection we get from those experiences. 
 
