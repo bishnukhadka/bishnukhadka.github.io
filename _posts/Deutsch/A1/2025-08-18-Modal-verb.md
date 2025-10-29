@@ -1,5 +1,5 @@
 ---
-title: "Modalverben - Modal Verbs in German"
+title: "Modal verben - Modal Verbs in German"
 date: 2025-08-18
 permalink: /post/A1/modalverben
 category: 
