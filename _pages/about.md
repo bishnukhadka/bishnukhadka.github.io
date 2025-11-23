@@ -23,7 +23,7 @@ redirect_from:
 
 **GPTopic: Dynamic and Interactive Topic Representations**
 - Arik Reuter, [Bishnu Khadka]((bishnukhadka.github.io)), Anton Thielmann, Christoph Weisser, Sebastian Fischer, Benjamin Säfken
-- [Arxiv](https://arxiv.org/abs/2403.03628)
+- 🔗[Arxiv](https://arxiv.org/abs/2403.03628)
 
 ## 🤝 Open Source Contribution
 
