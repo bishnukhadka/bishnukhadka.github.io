@@ -21,6 +21,10 @@ redirect_from:
 - Bipun Man Pati, [Bishnu Khadka](bishnukhadka.github.io), Ukesh Thapa, Sujay Pal, Subarna Sakya, Anup Shrestha, Hemanta Joshi, Dhiraj Pyakurel, Prem Chandra Roy
 - 🔗[IEEE Access](https://ieeexplore.ieee.org/document/11021562/)
 
+**GPTopic: Dynamic and Interactive Topic Representations**
+- Arik Reuter, [Bishnu Khadka]((bishnukhadka.github.io)), Anton Thielmann, Christoph Weisser, Sebastian Fischer, Benjamin Säfken
+- [Arxiv](https://arxiv.org/abs/2403.03628)
+
 ## 🤝 Open Source Contribution
 
 I have experience contributing to [DeepTabular](https://github.com/OpenTabular/DeepTabular) a large open-source project for Tabular Deep Learning. 
